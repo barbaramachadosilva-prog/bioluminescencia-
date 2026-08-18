@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bioluminescência | Pesquisa Científica</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     FUNDO
+================================================== -->
+
+<div class="background-grid"></div>
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+
+
+
+<!-- ==================================================
+     CABEÇALHO
+================================================== -->
+
+<header>
+
+    <nav class="navbar">
+
+        <a href="#inicio" class="logo">
+
+            <div class="logo-symbol">
+                ✦
+            </div>
+
+            <div class="logo-text">
+
+                <strong>BIOLUMI</strong>
+
+                <span>NESCÊNCIA</span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="mobile-button"
+            id="mobileButton"
+            aria-label="Abrir menu">
+
+            ☰
+
+        </button>
+
+
+        <ul class="navigation" id="navigation">
+
+            <li>
+                <a href="#inicio" class="active">
+                    INÍCIO
+                </a>
+            </li>
+
+
+            <li class="research-dropdown">
+
+                <button id="researchButton">
+                    PESQUISA
+                    <span>⌄</span>
+                </button>
+
+
+                <div class="dropdown-menu">
+
+                    <a href="#oque">
+                        <b>01</b>
+                        O que é?
+                    </a>
+
+                    <a href="#como">
+                        <b>02</b>
+                        Como acontece?
+                    </a>
+
+                    <a href="#exemplos">
+                        <b>03</b>
+                        Exemplos
+                    </a>
+
+                    <a href="#funcoes">
+                        <b>04</b>
+                        Funções
+                    </a>
+
+                    <a href="#curiosidades">
+                        <b>05</b>
+                        Curiosidades
+                    </a>
+
+                    <a href="#conclusao">
+                        <b>06</b>
+                        Conclusão
+                    </a>
+
+                </div>
+
+            </li>
+
+
+            <li>
+                <a href="#quiz">
+                    QUIZ
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#evidencias">
+                    EVIDÊNCIAS
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-status">
+
+            <span class="status-dot"></span>
+
+            SISTEMA ONLINE
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ==================================================
+     CONTEÚDO
+================================================== -->
+
+<main>
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="hero" id="inicio">
+
+
+    <div class="hero-content">
+
+
+        <div class="hero-information">
+
+
+            <div class="section-tag">
+
+                <span class="tag-line"></span>
+
+                PESQUISA CIENTÍFICA
+
+                <span class="tag-symbol">✦</span>
+
+            </div>
+
+
+            <h1>
+
+                A LUZ QUE
+
+                <br>
+
+                NASCE
+                <span>DA VIDA.</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Bioluminescência é o fenômeno em que
+                organismos vivos produzem luz através
+                de reações químicas. Um espetáculo
+                natural que ilumina oceanos, florestas
+                e a curiosidade humana.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#oque"
+                    class="button-primary">
+
+                    EXPLORAR PESQUISA
+
+                    <span>→</span>
+
+                </a>
+
+
+                <a
+                    href="#quiz"
+                    class="button-secondary">
+
+                    FAZER QUIZ
+
+                    <span>✦</span>
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-information-cards">
+
+
+                <div class="hero-mini-card">
+
+                    <div class="mini-icon">
+                        ◉
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            DIVERSOS
+                        </strong>
+
+                        <span>
+                            ORGANISMOS
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-mini-card">
+
+                    <div class="mini-icon">
+                        ≋
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            INÚMEROS
+                        </strong>
+
+                        <span>
+                            AMBIENTES
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-mini-card">
+
+                    <div class="mini-icon">
+                        ✧
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            LUZ FRIA
+                        </strong>
+
+                        <span>
+                            SEM CALOR
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             MAR DE BIOLUMINESCÊNCIA
+        ================================================== -->
+
+        <div class="bioluminescent-ocean">
+
+
+            <div class="ocean-title">
+
+                <span class="live-dot"></span>
+
+                BIOLUMINESCÊNCIA
+                <small>LIVE</small>
+
+            </div>
+
+
+            <canvas
+                id="oceanCanvas">
+            </canvas>
+
+
+            <div class="ocean-overlay">
+
+
+                <div class="ocean-information">
+
+                    <div class="information-icon">
+                        ✧
+                    </div>
+
+                    <div>
+
+                        <small>
+                            CURIOSIDADE
+                        </small>
+
+                        <p>
+                            A luz bioluminescente é
+                            conhecida como
+                            <strong>“luz fria”</strong>,
+                            pois quase não produz calor.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ocean-bottom">
+
+                    <span>
+                        ●
+                        PARTÍCULAS LUMINOSAS
+                    </span>
+
+                    <span>
+                        CLIQUE NO OCEANO
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     NAVEGAÇÃO DA PESQUISA
+================================================== -->
+
+<section class="research-navigation">
+
+
+    <div class="research-navigation-title">
+
+        <span>
+            NAVEGUE PELA PESQUISA
+        </span>
+
+        <div class="navigation-line">
+            <i></i>
+        </div>
+
+    </div>
+
+
+    <a href="#oque">
+
+        <strong>01</strong>
+
+        <div>
+            <b>O QUE É?</b>
+            <span>Conceito e definição</span>
+        </div>
+
+    </a>
+
+
+    <a href="#como">
+
+        <strong>02</strong>
+
+        <div>
+            <b>COMO ACONTECE?</b>
+            <span>Processo químico</span>
+        </div>
+
+    </a>
+
+
+    <a href="#exemplos">
+
+        <strong>03</strong>
+
+        <div>
+            <b>EXEMPLOS</b>
+            <span>Organismos luminosos</span>
+        </div>
+
+    </a>
+
+
+    <a href="#funcoes">
+
+        <strong>04</strong>
+
+        <div>
+            <b>FUNÇÕES</b>
+            <span>Para que serve</span>
+        </div>
+
+    </a>
+
+
+    <a href="#curiosidades">
+
+        <strong>05</strong>
+
+        <div>
+            <b>CURIOSIDADES</b>
+            <span>Mitos e verdades</span>
+        </div>
+
+    </a>
+
+
+    <a href="#conclusao">
+
+        <strong>06</strong>
+
+        <div>
+            <b>CONCLUSÃO</b>
+            <span>Síntese final</span>
+        </div>
+
+    </a>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     O QUE É
+================================================== -->
+
+<section class="research-section" id="oque">
+
+
+    <div class="section-heading">
+
+
+        <div class="section-number">
+            01.
+        </div>
+
+
+        <div>
+
+            <span>
+                CONCEITO TEÓRICO
+            </span>
+
+            <h2>
+
+                O QUE É
+                <br>
+
+                <strong>BIOLUMINESCÊNCIA?</strong>
+
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="definition-grid">
+
+
+        <div class="definition-text">
+
+
+            <p class="large-paragraph">
+
+                É a capacidade de certos organismos
+                vivos de produzir luz através de
+                <strong>reações químicas internas.</strong>
+
+            </p>
+
+
+            <p>
+
+                Essa capacidade aparece em diferentes
+                grupos de seres vivos e pode ser encontrada
+                tanto em ambientes marinhos quanto
+                terrestres.
+
+            </p>
+
+
+            <p>
+
+                No oceano, a bioluminescência é especialmente
+                comum. Pequenos organismos podem produzir
+                flashes de luz quando a água é movimentada,
+                criando o famoso efeito de um
+                <strong>mar brilhante.</strong>
+
+            </p>
+
+
+            <div class="concept-box">
+
+                <div class="concept-symbol">
+                    ✦
+                </div>
+
+                <div>
+
+                    <strong>
+                        CONCEITO-CHAVE
+                    </strong>
+
+                    <p>
+                        Energia química
+                        →
+                        reação bioquímica
+                        →
+                        energia luminosa.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="science-diagram">
+
+
+            <div class="diagram-title">
+
+                <span></span>
+
+                ESTRUTURA BIOLÓGICA
+
+            </div>
+
+
+            <div class="diagram-circle">
+
+                <div class="diagram-core">
+                    ✦
+                </div>
+
+                <div class="diagram-orbit orbit-a"></div>
+
+                <div class="diagram-orbit orbit-b"></div>
+
+                <div class="diagram-particle dp1"></div>
+
+                <div class="diagram-particle dp2"></div>
+
+                <div class="diagram-particle dp3"></div>
+
+            </div>
+
+
+            <div class="diagram-label label-a">
+                LUCIFERINA
+            </div>
+
+            <div class="diagram-label label-b">
+                LUCIFERASE
+            </div>
+
+            <div class="diagram-label label-c">
+                LUZ
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     COMO ACONTECE
+================================================== -->
+
+<section class="research-section dark-section" id="como">
+
+
+    <div class="section-heading">
+
+
+        <div class="section-number">
+            02.
+        </div>
+
+
+        <div>
+
+            <span>
+                PROCESSO QUÍMICO
+            </span>
+
+            <h2>
+
+                COMO A LUZ
+                <br>
+
+                <strong>ACONTECE?</strong>
+
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="process-grid">
+
+
+        <article class="process-card">
+
+            <span>01</span>
+
+            <div class="process-icon">
+                ◈
+            </div>
+
+            <h3>
+                Luciferina
+            </h3>
+
+            <p>
+                Molécula responsável por participar
+                da reação química que produz luz.
+            </p>
+
+        </article>
+
+
+        <article class="process-card">
+
+            <span>02</span>
+
+            <div class="process-icon">
+                ◇
+            </div>
+
+            <h3>
+                Luciferase
+            </h3>
+
+            <p>
+                Enzima que acelera a reação entre
+                a luciferina e o oxigênio.
+            </p>
+
+        </article>
+
+
+        <article class="process-card">
+
+            <span>03</span>
+
+            <div class="process-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Oxigênio
+            </h3>
+
+            <p>
+                Participa da reação química que
+                permite a transformação da energia.
+            </p>
+
+        </article>
+
+
+        <article class="process-card highlighted">
+
+            <span>04</span>
+
+            <div class="process-icon">
+                ✦
+            </div>
+
+            <h3>
+                Luz
+            </h3>
+
+            <p>
+                O resultado final da reação:
+                energia transformada em luz.
+            </p>
+
+        </article>
+
+
+    </div>
+
+
+    <div class="chemical-equation">
+
+        <span>
+            LUCIFERINA
+        </span>
+
+        <b>+</b>
+
+        <span>
+            O₂
+        </span>
+
+        <b>+</b>
+
+        <span>
+            ENERGIA
+        </span>
+
+        <strong>
+            →
+        </strong>
+
+        <em>
+            LUZ
+        </em>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     EXEMPLOS
+================================================== -->
+
+<section class="research-section" id="exemplos">
+
+
+    <div class="section-heading">
+
+        <div class="section-number">
+            03.
+        </div>
+
+        <div>
+
+            <span>
+                ORGANISMOS
+            </span>
+
+            <h2>
+
+                EXEMPLOS DE
+                <br>
+
+                <strong>SERES LUMINOSOS</strong>
+
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="organisms-grid">
+
+
+        <article class="organism-card">
+
+            <div class="organism-image jellyfish"></div>
+
+            <div class="organism-content">
+
+                <span>
+                    MARINHO // 01
+                </span>
+
+                <h3>
+                    Água-viva
+                </h3>
+
+                <p>
+                    Algumas espécies conseguem
+                    produzir luz quando são
+                    estimuladas.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="organism-card">
+
+            <div class="organism-image firefly"></div>
+
+            <div class="organism-content">
+
+                <span>
+                    TERRESTRE // 02
+                </span>
+
+                <h3>
+                    Vaga-lume
+                </h3>
+
+                <p>
+                    Utiliza sinais luminosos
+                    principalmente na comunicação
+                    e reprodução.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="organism-card">
+
+            <div class="organism-image plankton"></div>
+
+            <div class="organism-content">
+
+                <span>
+                    MICROSCÓPICO // 03
+                </span>
+
+                <h3>
+                    Fitoplâncton
+                </h3>
+
+                <p>
+                    Pode produzir flashes azulados
+                    quando a água é movimentada.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="organism-card">
+
+            <div class="organism-image fungus"></div>
+
+            <div class="organism-content">
+
+                <span>
+                    FUNGO // 04
+                </span>
+
+                <h3>
+                    Fungos luminosos
+                </h3>
+
+                <p>
+                    Algumas espécies apresentam
+                    emissão de luz esverdeada.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FUNÇÕES
+================================================== -->
+
+<section class="research-section dark-section" id="funcoes">
+
+
+    <div class="section-heading">
+
+        <div class="section-number">
+            04.
+        </div>
+
+        <div>
+
+            <span>
+                FUNÇÕES BIOLÓGICAS
+            </span>
+
+            <h2>
+
+                POR QUE
+                <br>
+
+                <strong>PRODUZIR LUZ?</strong>
+
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="function-grid">
+
+
+        <div class="function-card">
+
+            <div class="function-icon">
+                🛡
+            </div>
+
+            <span>
+                DEFESA
+            </span>
+
+            <h3>
+                Proteção
+            </h3>
+
+            <p>
+                A luz pode assustar ou confundir
+                predadores.
+            </p>
+
+        </div>
+
+
+        <div class="function-card">
+
+            <div class="function-icon">
+                ◎
+            </div>
+
+            <span>
+                PREDAÇÃO
+            </span>
+
+            <h3>
+                Captura
+            </h3>
+
+            <p>
+                Alguns organismos usam a luz
+                para atrair presas.
+            </p>
+
+        </div>
+
+
+        <div class="function-card">
+
+            <div class="function-icon">
+                ◌
+            </div>
+
+            <span>
+                COMUNICAÇÃO
+            </span>
+
+            <h3>
+                Sinais
+            </h3>
+
+            <p>
+                A emissão luminosa pode transmitir
+                informações para outros indivíduos.
+            </p>
+
+        </div>
+
+
+        <div class="function-card">
+
+            <div class="function-icon">
+                ◉
+            </div>
+
+            <span>
+                CAMUFLAGEM
+            </span>
+
+            <h3>
+                Invisibilidade
+            </h3>
+
+            <p>
+                Pode ajudar organismos marinhos
+                a esconder sua silhueta.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CURIOSIDADES
+================================================== -->
+
+<section class="research-section" id="curiosidades">
+
+
+    <div class="section-heading">
+
+        <div class="section-number">
+            05.
+        </div>
+
+        <div>
+
+            <span>
+                MITOS E VERDADES
+            </span>
+
+            <h2>
+
+                VOCÊ
+                <br>
+
+                <strong>SABIA DISSO?</strong>
+
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <p class="section-description">
+
+        Clique nos cartões para revelar a resposta.
+
+    </p>
+
+
+
+    <div class="flashcard-grid">
+
+
+        <button class="flashcard">
+
+            <div class="card-number">
+                01
+            </div>
+
+            <span>
+                MITO OU VERDADE?
+            </span>
+
+            <h3>
+                Todo organismo
+                bioluminescente vive no mar.
+            </h3>
+
+            <div class="flash-answer">
+
+                <strong>
+                    MITO
+                </strong>
+
+                <p>
+                    Vaga-lumes e alguns fungos
+                    também produzem luz.
+                </p>
+
+            </div>
+
+            <small>
+                CLIQUE PARA REVELAR
+            </small>
+
+        </button>
+
+
+
+        <button class="flashcard">
+
+            <div class="card-number">
+                02
+            </div>
+
+            <span>
+                MITO OU VERDADE?
+            </span>
+
+            <h3>
+                O vaga-lume produz luz
+                através de uma reação química.
+            </h3>
+
+            <div class="flash-answer">
+
+                <strong>
+                    VERDADE
+                </strong>
+
+                <p>
+                    A luz é resultado de uma
+                    reação bioquímica.
+                </p>
+
+            </div>
+
+            <small>
+                CLIQUE PARA REVELAR
+            </small>
+
+        </button>
+
+
+
+        <button class="flashcard">
+
+            <div class="card-number">
+                03
+            </div>
+
+            <span>
+                MITO OU VERDADE?
+            </span>
+
+            <h3>
+                Bioluminescência e fluorescência
+                são a mesma coisa.
+            </h3>
+
+            <div class="flash-answer">
+
+                <strong>
+                    MITO
+                </strong>
+
+                <p>
+                    São fenômenos diferentes.
+                    A bioluminescência produz
+                    luz por uma reação química.
+                </p>
+
+            </div>
+
+            <small>
+                CLIQUE PARA REVELAR
+            </small>
+
+        </button>
+
+
+
+        <button class="flashcard">
+
+            <div class="card-number">
+                04
+            </div>
+
+            <span>
+                MITO OU VERDADE?
+            </span>
+
+            <h3>
+                A bioluminescência pode
+                ajudar na defesa.
+            </h3>
+
+            <div class="flash-answer">
+
+                <strong>
+                    VERDADE
+                </strong>
+
+                <p>
+                    O brilho pode assustar,
+                    distrair ou confundir predadores.
+                </p>
+
+            </div>
+
+            <small>
+                CLIQUE PARA REVELAR
+            </small>
+
+        </button>
+
+
+
+        <button class="flashcard">
+
+            <div class="card-number">
+                05
+            </div>
+
+            <span>
+                MITO OU VERDADE?
+            </span>
+
+            <h3>
+                A bioluminescência
+                sempre é azul.
+            </h3>
+
+            <div class="flash-answer">
+
+                <strong>
+                    MITO
+                </strong>
+
+                <p>
+                    Existem organismos que produzem
+                    diferentes cores de luz.
+                </p>
+
+            </div>
+
+            <small>
+                CLIQUE PARA REVELAR
+            </small>
+
+        </button>
+
+
+
+        <button class="flashcard">
+
+            <div class="card-number">
+                06
+            </div>
+
+            <span>
+                MITO OU VERDADE?
+            </span>
+
+            <h3>
+                O mar pode brilhar
+                por causa de microrganismos.
+            </h3>
+
+            <div class="flash-answer">
+
+                <strong>
+                    VERDADE
+                </strong>
+
+                <p>
+                    Alguns dinoflagelados produzem
+                    flashes quando a água se movimenta.
+                </p>
+
+            </div>
+
+            <small>
+                CLIQUE PARA REVELAR
+            </small>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     QUIZ
+================================================== -->
+
+<section class="quiz-section" id="quiz">
+
+
+    <div class="quiz-header">
+
+        <span>
+            06 // TESTE SEUS CONHECIMENTOS
+        </span>
+
+        <h2>
+            QUIZ DE
+            <strong>BIOLUMINESCÊNCIA</strong>
+        </h2>
+
+        <p>
+            Descubra quanto você aprendeu.
+        </p>
+
+    </div>
+
+
+
+    <div class="quiz-box" id="quizBox">
+
+
+        <div class="quiz-top">
+
+            <span id="questionNumber">
+                QUESTÃO 01 / 05
+            </span>
+
+            <div class="quiz-progress">
+
+                <div id="quizProgress"></div>
+
+            </div>
+
+            <strong id="scoreDisplay">
+                0 PONTOS
+            </strong>
+
+        </div>
+
+
+
+        <div id="questionArea">
+
+
+            <h3 id="question">
+                O que é bioluminescência?
+            </h3>
+
+
+            <div class="answers" id="answers">
+
+
+                <button data-correct="true">
+                    Produção de luz por organismos vivos
+                </button>
+
+
+                <button>
+                    Reflexo da luz solar
+                </button>
+
+
+                <button>
+                    Uma doença marinha
+                </button>
+
+
+                <button>
+                    Um tipo de fotossíntese
+                </button>
+
+
+            </div>
+
+
+            <button
+                class="next-question"
+                id="nextQuestion"
+                disabled>
+
+                PRÓXIMA QUESTÃO →
+
+            </button>
+
+
+        </div>
+
+
+
+        <div
+            class="quiz-result"
+            id="quizResult">
+
+            <div class="result-icon">
+                ✦
+            </div>
+
+            <h3>
+                QUIZ FINALIZADO
+            </h3>
+
+            <p id="finalScore">
+                Você fez 0 pontos.
+            </p>
+
+            <button id="restartQuiz">
+                FAZER NOVAMENTE
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     EVIDÊNCIAS
+================================================== -->
+
+<section class="research-section evidence-section" id="evidencias">
+
+
+    <div class="section-heading">
+
+        <div class="section-number">
+            07.
+        </div>
+
+        <div>
+
+            <span>
+                EVIDÊNCIAS DAS AULAS PRÁTICAS
+            </span>
+
+            <h2>
+
+                GALERIA DA
+                <br>
+
+                <strong>PESQUISA</strong>
+
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <p class="section-description">
+
+        Espaço destinado aos registros e imagens
+        utilizados durante a pesquisa.
+
+    </p>
+
+
+
+    <div class="gallery">
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85">
+
+            <figcaption>
+                01 // Ambiente marinho
+            </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=1000&q=85">
+
+            <figcaption>
+                02 // Organismo marinho
+            </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85">
+
+            <figcaption>
+                03 // Ambiente noturno
+            </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1544550285-f813152fb2fd?auto=format&fit=crop&w=1000&q=85">
+
+            <figcaption>
+                04 // Ambiente aquático
+            </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1507371341162-763b5e419408?auto=format&fit=crop&w=1000&q=85">
+
+            <figcaption>
+                05 // Natureza
+            </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1000&q=85">
+
+            <figcaption>
+                06 // Observação
+            </figcaption>
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1000&q=85">
+
+            <figcaption>
+                07 // Registro final
+            </figcaption>
+
+        </figure>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CONCLUSÃO
+================================================== -->
+
+<section class="conclusion" id="conclusao">
+
+
+    <div class="conclusion-content">
+
+
+        <div>
+
+            <span>
+                08 // CONCLUSÃO
+            </span>
+
+            <h2>
+
+                UMA LUZ QUE
+                <strong>
+                    CONTA UMA HISTÓRIA.
+                </strong>
+
+            </h2>
+
+
+            <p>
+
+                A bioluminescência mostra como diferentes
+                organismos desenvolveram estratégias
+                extraordinárias para sobreviver.
+
+            </p>
+
+
+            <p>
+
+                Defesa, comunicação, camuflagem e predação
+                são apenas algumas das funções que essa
+                capacidade pode desempenhar.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="conclusion-light">
+
+            <div class="big-light"></div>
+
+            <div class="small-light sl1"></div>
+            <div class="small-light sl2"></div>
+            <div class="small-light sl3"></div>
+            <div class="small-light sl4"></div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FONTES
+================================================== -->
+
+<section class="sources">
+
+
+    <div>
+
+        <span>
+            FONTES DE PESQUISA
+        </span>
+
+        <h2>
+            Referências
+        </h2>
+
+    </div>
+
+
+    <div class="source-links">
+
+        <a
+            href="https://oceanservice.noaa.gov/facts/bioluminescence.html"
+            target="_blank">
+
+            NOAA
+            <span>↗</span>
+
+        </a>
+
+
+        <a
+            href="https://www.britannica.com/science/bioluminescence"
+            target="_blank">
+
+            Britannica
+            <span>↗</span>
+
+        </a>
+
+
+        <a
+            href="https://www.si.edu/spotlight/buginfo/bioluminescence"
+            target="_blank">
+
+            Smithsonian
+            <span>↗</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- ==================================================
+     RODAPÉ
+================================================== -->
+
+<footer>
+
+
+    <div class="footer-main">
+
+
+        <div class="footer-brand">
+
+            <div class="logo">
+
+                <div class="logo-symbol">
+                    ✦
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>BIOLUMI</strong>
+
+                    <span>NESCÊNCIA</span>
+
+                </div>
+
+            </div>
+
+            <p>
+                Pesquisa científica escolar
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <small>
+                INTEGRANTES
+            </small>
+
+            <strong>
+                Barbara & Maria Clara
+            </strong>
+
+            <p>
+                2G • Tarde
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <small>
+                INSTITUIÇÃO
+            </small>
+
+            <strong>
+                COLÉGIO ESTADUAL
+                PADRE CLÁUDIO MORELLI
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        BIOLUMINESCÊNCIA // PROJETO ESCOLAR
+
+        <span>
+            2026
+        </span>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- BOTÃO VOLTAR -->
+
+<button
+    class="back-top"
+    id="backTop">
+
+    ↑
+
+</button>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
