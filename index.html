@@ -1,678 +1,160 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>A Magia das Cores | Arco-íris</title>
+    <title>Bioluminescência | Pesquisa</title>
 
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap"
-          rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
-
 
 <body>
 
+<header class="header">
 
-<!-- ==================================================
-     FUNDO
-================================================== -->
-
-<div class="background-grid"></div>
-
-<div class="background-glow glow-one"></div>
-<div class="background-glow glow-two"></div>
-
-
-
-<!-- ==================================================
-     CABEÇALHO
-================================================== -->
-
-<header>
-
-    <nav class="navbar">
+    <nav class="nav">
 
         <a href="#inicio" class="logo">
-
-            <div class="logo-symbol">
-                🌈
-            </div>
-
-            <div class="logo-text">
-
-                <strong>A MAGIA</strong>
-
-                <span>DAS CORES</span>
-
-            </div>
-
+            <span class="logo-dot"></span>
+            BIOLUMI<span> NESCÊNCIA</span>
         </a>
 
-
-        <button
-            class="mobile-button"
-            id="mobileButton"
-            aria-label="Abrir menu">
-
+        <button class="menu-toggle" id="menuToggle">
             ☰
-
         </button>
 
-
-        <ul class="navigation" id="navigation">
+        <ul class="menu" id="mainMenu">
 
             <li>
-                <a href="#inicio" class="active">
-                    INÍCIO
-                </a>
+                <a href="#inicio">Início</a>
             </li>
 
+            <li class="dropdown">
 
-            <li class="research-dropdown">
-
-                <button
-                    id="researchButton"
-                    type="button">
-
-                    PESQUISA
-
-                    <span>⌄</span>
-
+                <button class="dropdown-button">
+                    Pesquisa ▾
                 </button>
 
+                <ul class="dropdown-menu">
 
-                <div class="dropdown-menu">
+                    <li>
+                        <a href="#o-que-e">O que é?</a>
+                    </li>
 
-                    <a href="#oque">
-                        <b>01</b>
-                        O que é?
-                    </a>
+                    <li>
+                        <a href="#como-acontece">Como acontece?</a>
+                    </li>
 
-                    <a href="#como">
-                        <b>02</b>
-                        Como acontece?
-                    </a>
+                    <li>
+                        <a href="#exemplos">Exemplos</a>
+                    </li>
 
-                    <a href="#exemplos">
-                        <b>03</b>
-                        Exemplos
-                    </a>
+                    <li>
+                        <a href="#funcoes">Funções</a>
+                    </li>
 
-                    <a href="#curiosidades">
-                        <b>04</b>
-                        Mitos e verdades
-                    </a>
+                    <li>
+                        <a href="#curiosidades">Curiosidades</a>
+                    </li>
 
-                    <a href="#robotica">
-                        <b>05</b>
-                        Robótica
-                    </a>
+                    <li>
+                        <a href="#conclusao">Conclusão</a>
+                    </li>
 
-                    <a href="#conclusao">
-                        <b>06</b>
-                        Conclusão
-                    </a>
-
-                </div>
+                </ul>
 
             </li>
 
-
             <li>
-
-                <a href="#quiz">
-                    QUIZ
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="#evidencias">
-                    EVIDÊNCIAS
-                </a>
-
+                <a href="#evidencias">Evidências</a>
             </li>
 
         </ul>
-
-
-        <div class="nav-status">
-
-            <span class="status-dot"></span>
-
-            PROJETO ONLINE
-
-        </div>
 
     </nav>
 
 </header>
 
 
-
-<!-- ==================================================
-     CONTEÚDO
-================================================== -->
-
 <main>
 
-
-
-<!-- ==================================================
-     HERO
-================================================== -->
+<!-- INÍCIO -->
 
 <section class="hero" id="inicio">
 
-
     <div class="hero-content">
 
+        <div class="hero-text">
 
-        <div class="hero-information">
-
-
-            <div class="section-tag">
-
-                <span class="tag-line"></span>
-
-                PROJETO INTERDISCIPLINAR
-
-                <span class="tag-symbol">
-                    🌈
-                </span>
-
-            </div>
-
+            <p class="eyebrow">
+                COLÉGIO ESTADUAL PADRE CLÁUDIO MORELLI
+            </p>
 
             <h1>
-
-                A LUZ QUE
-
-                <br>
-
-                REVELA
-
-                <span>AS CORES.</span>
-
+                A luz que nasce
+                <span>da vida.</span>
             </h1>
 
-
-            <p class="hero-description">
-
-                Descubra como a luz branca, a água e a
-                reflexão e refração podem formar um dos
-                fenômenos naturais mais fascinantes:
-                o arco-íris.
-
+            <p class="description">
+                Uma pesquisa sobre a bioluminescência:
+                o fenômeno em que organismos vivos produzem
+                e emitem luz.
             </p>
 
+            <div class="buttons">
 
-            <div class="hero-buttons">
-
-                <a
-                    href="#oque"
-                    class="button-primary">
-
-                    EXPLORAR PESQUISA
-
-                    <span>→</span>
-
+                <a href="#o-que-e" class="button primary">
+                    Começar pesquisa →
                 </a>
 
-
-                <a
-                    href="#quiz"
-                    class="button-secondary">
-
-                    FAZER QUIZ
-
-                    <span>✦</span>
-
+                <a href="#evidencias" class="button secondary">
+                    Ver evidências
                 </a>
 
             </div>
 
-
-            <div class="hero-information-cards">
-
-
-                <div class="hero-mini-card">
-
-                    <div class="mini-icon">
-                        ☀
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            LUZ
-                        </strong>
-
-                        <span>
-                            SOLAR
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="hero-mini-card">
-
-                    <div class="mini-icon">
-                        💧
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            GOTAS
-                        </strong>
-
-                        <span>
-                            DE ÁGUA
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="hero-mini-card">
-
-                    <div class="mini-icon">
-                        🌈
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            CORES
-                        </strong>
-
-                        <span>
-                            DO ESPECTRO
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- ==================================================
-             ÁREA DO ARCO-ÍRIS
-        ================================================== -->
-
-        <div class="bioluminescent-ocean rainbow-display">
-
-
-            <div class="ocean-title">
-
-                <span class="live-dot"></span>
-
-                ARCO-ÍRIS
-
-                <small>LIVE</small>
-
-            </div>
-
-
-            <canvas
-                id="oceanCanvas">
-            </canvas>
-
-
-            <div class="ocean-overlay">
-
-
-                <div class="ocean-information">
-
-                    <div class="information-icon">
-                        🌈
-                    </div>
-
-                    <div>
-
-                        <small>
-                            CURIOSIDADE
-                        </small>
-
-                        <p>
-
-                            O arco-íris acontece quando a
-                            luz do Sol interage com pequenas
-                            gotas de água presentes no ar.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="ocean-bottom">
-
-                    <span>
-                        ● LUZ + ÁGUA
-                    </span>
-
-                    <span>
-                        CLIQUE NA ÁREA
-                    </span>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-</section>
-
-
-
-<!-- ==================================================
-     NAVEGAÇÃO DA PESQUISA
-================================================== -->
-
-<section class="research-navigation">
-
-
-    <div class="research-navigation-title">
-
-        <span>
-            NAVEGUE PELA PESQUISA
-        </span>
-
-        <div class="navigation-line">
-            <i></i>
-        </div>
-
-    </div>
-
-
-    <a href="#oque">
-
-        <strong>01</strong>
-
-        <div>
-
-            <b>O QUE É?</b>
-
-            <span>
-                Conceito e definição
-            </span>
-
-        </div>
-
-    </a>
-
-
-    <a href="#como">
-
-        <strong>02</strong>
-
-        <div>
-
-            <b>COMO ACONTECE?</b>
-
-            <span>
-                Luz, água e refração
-            </span>
-
-        </div>
-
-    </a>
-
-
-    <a href="#exemplos">
-
-        <strong>03</strong>
-
-        <div>
-
-            <b>EXEMPLOS</b>
-
-            <span>
-                Fenômenos relacionados
-            </span>
-
-        </div>
-
-    </a>
-
-
-    <a href="#curiosidades">
-
-        <strong>04</strong>
-
-        <div>
-
-            <b>MITOS E VERDADES</b>
-
-            <span>
-                Curiosidades
-            </span>
-
-        </div>
-
-    </a>
-
-
-    <a href="#robotica">
-
-        <strong>05</strong>
-
-        <div>
-
-            <b>ROBÓTICA</b>
-
-            <span>
-                Fade-in e fade-out
-            </span>
-
-        </div>
-
-    </a>
-
-
-    <a href="#conclusao">
-
-        <strong>06</strong>
-
-        <div>
-
-            <b>CONCLUSÃO</b>
-
-            <span>
-                Síntese final
-            </span>
-
-        </div>
-
-    </a>
-
-
-</section>
-
-
-
-<!-- ==================================================
-     O QUE É
-================================================== -->
-
-<section class="research-section" id="oque">
-
-
-    <div class="section-heading">
-
-
-        <div class="section-number">
-            01.
-        </div>
-
-
-        <div>
-
-            <span>
-                CONCEITO TEÓRICO
-            </span>
-
-            <h2>
-
-                O QUE É
-
-                <br>
-
-                <strong>UM ARCO-ÍRIS?</strong>
-
-            </h2>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="definition-grid">
-
-
-        <div class="definition-text">
-
-
-            <p class="large-paragraph">
-
-                O arco-íris é um fenômeno óptico e
-                meteorológico produzido pela interação
-                entre a <strong>luz do Sol e gotas de água</strong>
-                presentes na atmosfera.
-
-            </p>
-
-
-            <p>
-
-                Quando a luz entra em uma gota de água,
-                ela sofre refração. A luz branca é formada
-                por diferentes comprimentos de onda, que
-                podem ser separados durante esse processo.
-
-            </p>
-
-
-            <p>
-
-                É por isso que conseguimos observar
-                diferentes cores formando o arco que
-                conhecemos como arco-íris.
-
-            </p>
-
-
-            <div class="concept-box">
-
-                <div class="concept-symbol">
-                    🌈
+            <div class="statistics">
+
+                <div>
+                    <strong>6</strong>
+                    <small>temas principais</small>
                 </div>
 
                 <div>
+                    <strong>6+</strong>
+                    <small>cards interativos</small>
+                </div>
 
-                    <strong>
-                        CONCEITO-CHAVE
-                    </strong>
-
-                    <p>
-
-                        Luz branca
-                        →
-                        refração
-                        →
-                        reflexão
-                        →
-                        dispersão
-                        →
-                        cores.
-
-                    </p>
-
+                <div>
+                    <strong>7</strong>
+                    <small>imagens</small>
                 </div>
 
             </div>
 
-
         </div>
 
 
+        <div class="hero-light">
 
-        <div class="science-diagram">
+            <div class="light-orb">
 
+                <div class="light-core"></div>
 
-            <div class="diagram-title">
-
-                <span></span>
-
-                FORMAÇÃO DO ARCO-ÍRIS
-
-            </div>
-
-
-            <div class="diagram-circle">
-
-                <div class="diagram-core">
-                    🌈
-                </div>
-
-                <div class="diagram-orbit orbit-a"></div>
-
-                <div class="diagram-orbit orbit-b"></div>
-
-                <div class="diagram-particle dp1"></div>
-
-                <div class="diagram-particle dp2"></div>
-
-                <div class="diagram-particle dp3"></div>
+                <span class="particle particle1"></span>
+                <span class="particle particle2"></span>
+                <span class="particle particle3"></span>
+                <span class="particle particle4"></span>
 
             </div>
 
-
-            <div class="diagram-label label-a">
-                LUZ SOLAR
-            </div>
-
-            <div class="diagram-label label-b">
-                GOTA DE ÁGUA
-            </div>
-
-            <div class="diagram-label label-c">
-                CORES
-
-            </div>
-
+            <p>LUZ BIOLÓGICA</p>
 
         </div>
 
@@ -681,1109 +163,786 @@
 </section>
 
 
+<!-- O QUE É -->
 
-<!-- ==================================================
-     COMO ACONTECE
-================================================== -->
+<section class="section" id="o-que-e">
 
-<section class="research-section dark-section" id="como">
+    <div class="two-columns">
 
+        <div class="title">
 
-    <div class="section-heading">
-
-
-        <div class="section-number">
-            02.
-        </div>
-
-
-        <div>
-
-            <span>
-                FENÔMENO ÓPTICO
-            </span>
+            <p class="eyebrow">
+                01 — CONCEITO
+            </p>
 
             <h2>
-
-                COMO O ARCO-ÍRIS
-
-                <br>
-
-                <strong>ACONTECE?</strong>
-
+                O que é
+                <span>bioluminescência?</span>
             </h2>
 
         </div>
 
-    </div>
 
-
-
-    <div class="process-grid">
-
-
-        <article class="process-card">
-
-            <span>01</span>
-
-            <div class="process-icon">
-                ☀
-            </div>
-
-            <h3>
-                Luz solar
-            </h3>
+        <div class="text-card">
 
             <p>
-
-                A luz do Sol parece branca,
-                mas é composta por diferentes
-                cores.
-
+                Bioluminescência é a produção e emissão de luz
+                por um organismo vivo por meio de uma reação química.
             </p>
-
-        </article>
-
-
-        <article class="process-card">
-
-            <span>02</span>
-
-            <div class="process-icon">
-                💧
-            </div>
-
-            <h3>
-                Refração
-            </h3>
 
             <p>
-
-                Quando entra na gota, a luz
-                muda sua direção.
-
+                Ela ocorre em diferentes grupos de seres vivos,
+                principalmente em ambientes marinhos, mas também
+                pode ser encontrada em alguns insetos, fungos
+                e outros organismos terrestres.
             </p>
-
-        </article>
-
-
-        <article class="process-card">
-
-            <span>03</span>
-
-            <div class="process-icon">
-                ↔
-            </div>
-
-            <h3>
-                Reflexão
-            </h3>
 
             <p>
-
-                Parte da luz é refletida
-                dentro da gota de água.
-
+                Em muitos casos, a reação envolve moléculas chamadas
+                <strong>luciferina</strong> e <strong>luciferase</strong>.
             </p>
 
-        </article>
-
-
-        <article class="process-card highlighted">
-
-            <span>04</span>
-
-            <div class="process-icon">
-                🌈
+            <div class="fact">
+                ✦ A luz bioluminescente é conhecida como
+                "luz fria", pois produz pouquíssimo calor.
             </div>
 
-            <h3>
-                Dispersão
-            </h3>
-
-            <p>
-
-                As diferentes cores se separam
-                e podem chegar aos nossos olhos.
-
-            </p>
-
-        </article>
-
-
-    </div>
-
-
-    <div class="chemical-equation">
-
-        <span>
-            LUZ
-        </span>
-
-        <b>+</b>
-
-        <span>
-            ÁGUA
-        </span>
-
-        <b>+</b>
-
-        <span>
-            REFLEXÃO
-        </span>
-
-        <strong>
-            →
-        </strong>
-
-        <em>
-            ARCO-ÍRIS
-        </em>
+        </div>
 
     </div>
 
 </section>
 
 
+<!-- IMAGEM DA PRAIA -->
 
-<!-- ==================================================
-     EXEMPLOS
-================================================== -->
+<section class="image-section beach">
 
-<section class="research-section" id="exemplos">
+    <div class="image-text">
 
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            03.
-        </div>
-
-        <div>
-
-            <span>
-                FENÔMENOS
-            </span>
-
-            <h2>
-
-                ONDE PODEMOS
-
-                <br>
-
-                <strong>VER AS CORES?</strong>
-
-            </h2>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="organisms-grid">
-
-
-        <article class="organism-card">
-
-            <div class="organism-image jellyfish"></div>
-
-            <div class="organism-content">
-
-                <span>
-                    ATMOSFÉRICO // 01
-                </span>
-
-                <h3>
-                    Arco-íris
-                </h3>
-
-                <p>
-
-                    Surge quando a luz solar
-                    interage com gotas de água
-                    na atmosfera.
-
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <article class="organism-card">
-
-            <div class="organism-image firefly"></div>
-
-            <div class="organism-content">
-
-                <span>
-                    ATMOSFÉRICO // 02
-                </span>
-
-                <h3>
-                    Arco-íris duplo
-                </h3>
-
-                <p>
-
-                    Pode acontecer quando a luz
-                    sofre duas reflexões dentro
-                    das gotas.
-
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <article class="organism-card">
-
-            <div class="organism-image plankton"></div>
-
-            <div class="organism-content">
-
-                <span>
-                    ÓPTICO // 03
-                </span>
-
-                <h3>
-                    Prisma
-                </h3>
-
-                <p>
-
-                    Um prisma também pode separar
-                    a luz branca em diferentes
-                    cores.
-
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <article class="organism-card">
-
-            <div class="organism-image fungus"></div>
-
-            <div class="organism-content">
-
-                <span>
-                    COTIDIANO // 04
-                </span>
-
-                <h3>
-                    Água pulverizada
-                </h3>
-
-                <p>
-
-                    Mangueiras e fontes podem
-                    criar pequenas condições
-                    para observar um arco-íris.
-
-                </p>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     MITOS E VERDADES
-================================================== -->
-
-<section class="research-section dark-section" id="curiosidades">
-
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            04.
-        </div>
-
-        <div>
-
-            <span>
-                MITOS E VERDADES
-            </span>
-
-            <h2>
-
-                VOCÊ
-
-                <br>
-
-                <strong>SABIA DISSO?</strong>
-
-            </h2>
-
-        </div>
-
-    </div>
-
-
-    <p class="section-description">
-
-        Clique nos cartões para revelar a resposta.
-
-    </p>
-
-
-
-    <div class="flashcard-grid">
-
-
-        <button class="flashcard">
-
-            <div class="card-number">
-                01
-            </div>
-
-            <span>
-                MITO OU VERDADE?
-            </span>
-
-            <h3>
-                O arco-íris possui
-                apenas três cores.
-            </h3>
-
-            <div class="flash-answer">
-
-                <strong>
-                    MITO
-                </strong>
-
-                <p>
-
-                    Tradicionalmente são destacadas
-                    sete cores, mas a luz visível
-                    forma um espectro contínuo.
-
-                </p>
-
-            </div>
-
-            <small>
-                CLIQUE PARA REVELAR
-            </small>
-
-        </button>
-
-
-
-        <button class="flashcard">
-
-            <div class="card-number">
-                02
-            </div>
-
-            <span>
-                MITO OU VERDADE?
-            </span>
-
-            <h3>
-                O arco-íris depende
-                da presença de água.
-            </h3>
-
-            <div class="flash-answer">
-
-                <strong>
-                    VERDADE
-                </strong>
-
-                <p>
-
-                    Gotas de água são necessárias
-                    para que a luz possa sofrer
-                    os fenômenos ópticos envolvidos.
-
-                </p>
-
-            </div>
-
-            <small>
-                CLIQUE PARA REVELAR
-            </small>
-
-        </button>
-
-
-
-        <button class="flashcard">
-
-            <div class="card-number">
-                03
-            </div>
-
-            <span>
-                MITO OU VERDADE?
-            </span>
-
-            <h3>
-                É possível encontrar
-                um arco-íris no chão.
-            </h3>
-
-            <div class="flash-answer">
-
-                <strong>
-                    MITO
-                </strong>
-
-                <p>
-
-                    O arco-íris é um fenômeno
-                    óptico que depende da posição
-                    do observador e das gotas.
-
-                </p>
-
-            </div>
-
-            <small>
-                CLIQUE PARA REVELAR
-            </small>
-
-        </button>
-
-
-
-        <button class="flashcard">
-
-            <div class="card-number">
-                04
-            </div>
-
-            <span>
-                MITO OU VERDADE?
-            </span>
-
-            <h3>
-                O arco-íris pode aparecer
-                depois da chuva.
-            </h3>
-
-            <div class="flash-answer">
-
-                <strong>
-                    VERDADE
-                </strong>
-
-                <p>
-
-                    Quando ainda existem gotas
-                    de água no ar e há luz solar,
-                    as condições podem favorecer
-                    sua formação.
-
-                </p>
-
-            </div>
-
-            <small>
-                CLIQUE PARA REVELAR
-            </small>
-
-        </button>
-
-
-
-        <button class="flashcard">
-
-            <div class="card-number">
-                05
-            </div>
-
-            <span>
-                MITO OU VERDADE?
-            </span>
-
-            <h3>
-                O arco-íris é um objeto
-                que fica no céu.
-            </h3>
-
-            <div class="flash-answer">
-
-                <strong>
-                    MITO
-                </strong>
-
-                <p>
-
-                    Ele é um fenômeno óptico.
-                    Sua aparência depende da
-                    posição do observador.
-
-                </p>
-
-            </div>
-
-            <small>
-                CLIQUE PARA REVELAR
-            </small>
-
-        </button>
-
-
-
-        <button class="flashcard">
-
-            <div class="card-number">
-                06
-            </div>
-
-            <span>
-                MITO OU VERDADE?
-            </span>
-
-            <h3>
-                O arco-íris pode ser visto
-                em uma fonte de água.
-            </h3>
-
-            <div class="flash-answer">
-
-                <strong>
-                    VERDADE
-                </strong>
-
-                <p>
-
-                    Gotas de água pulverizadas
-                    podem produzir condições
-                    semelhantes às da chuva.
-
-                </p>
-
-            </div>
-
-            <small>
-                CLIQUE PARA REVELAR
-            </small>
-
-        </button>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     ROBÓTICA
-================================================== -->
-
-<section class="research-section" id="robotica">
-
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            05.
-        </div>
-
-        <div>
-
-            <span>
-                EVIDÊNCIAS DA DISCIPLINA
-            </span>
-
-            <h2>
-
-                ROBÓTICA:
-
-                <br>
-
-                <strong>FADE-IN E FADE-OUT</strong>
-
-            </h2>
-
-        </div>
-
-    </div>
-
-
-    <p class="section-description">
-
-        Nesta parte do projeto são apresentados os
-        registros da disciplina de Robótica, relacionados
-        aos efeitos de fade-in e fade-out.
-
-    </p>
-
-
-
-    <div class="gallery">
-
-
-        <figure>
-
-            <img
-                src="imagens/fade-in-1.jpg"
-                alt="Registro da atividade de fade-in">
-
-            <figcaption>
-                01 // FADE-IN
-            </figcaption>
-
-        </figure>
-
-
-        <figure>
-
-            <img
-                src="imagens/fade-in-2.jpg"
-                alt="Registro da atividade de fade-in">
-
-            <figcaption>
-                02 // FADE-IN
-            </figcaption>
-
-        </figure>
-
-
-        <figure>
-
-            <img
-                src="imagens/fade-out-1.jpg"
-                alt="Registro da atividade de fade-out">
-
-            <figcaption>
-                03 // FADE-OUT
-            </figcaption>
-
-        </figure>
-
-
-        <figure>
-
-            <img
-                src="imagens/fade-out-2.jpg"
-                alt="Registro da atividade de fade-out">
-
-            <figcaption>
-                04 // FADE-OUT
-            </figcaption>
-
-        </figure>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     QUIZ
-================================================== -->
-
-<section class="quiz-section" id="quiz">
-
-
-    <div class="quiz-header">
-
-        <span>
-            06 // TESTE SEUS CONHECIMENTOS
-        </span>
+        <p>OCEANO À NOITE</p>
 
         <h2>
+            Quando o mar parece
+            ter estrelas.
+        </h2>
 
-            QUIZ SOBRE
+    </div>
 
-            <strong>ARCO-ÍRIS</strong>
+</section>
 
+
+<!-- COMO ACONTECE -->
+
+<section class="section dark" id="como-acontece">
+
+    <div class="center-title">
+
+        <p class="eyebrow">
+            02 — MECANISMO
+        </p>
+
+        <h2>
+            Como <span>acontece?</span>
         </h2>
 
         <p>
-            Descubra quanto você aprendeu.
+            Um processo químico transforma energia
+            em luz visível.
         </p>
 
     </div>
 
 
-
-    <div class="quiz-box" id="quizBox">
-
-
-        <div class="quiz-top">
-
-            <span id="questionNumber">
-                QUESTÃO 01 / 05
-            </span>
-
-
-            <div class="quiz-progress">
-
-                <div id="quizProgress"></div>
-
-            </div>
-
-
-            <strong id="scoreDisplay">
-                0 PONTOS
-            </strong>
-
-        </div>
-
-
-
-        <div id="questionArea">
-
-
-            <h3 id="question">
-                O que é necessário para formar
-                um arco-íris?
-            </h3>
-
-
-            <div class="answers" id="answers"></div>
-
-
-            <button
-                class="next-question"
-                id="nextQuestion"
-                disabled>
-
-                PRÓXIMA QUESTÃO →
-
-            </button>
-
-
-        </div>
-
-
-
-        <div
-            class="quiz-result"
-            id="quizResult">
-
-            <div class="result-icon">
-                🌈
-            </div>
-
-            <h3>
-                QUIZ FINALIZADO
-            </h3>
-
-            <p id="finalScore">
-                Você fez 0 pontos.
-            </p>
-
-            <button id="restartQuiz">
-                FAZER NOVAMENTE
-            </button>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     EVIDÊNCIAS
-================================================== -->
-
-<section
-    class="research-section evidence-section"
-    id="evidencias">
-
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            07.
-        </div>
-
-        <div>
-
-            <span>
-                EVIDÊNCIAS DO PROJETO
-            </span>
-
-            <h2>
-
-                GALERIA DA
-
-                <br>
-
-                <strong>PESQUISA</strong>
-
-            </h2>
-
-        </div>
-
-    </div>
-
-
-    <p class="section-description">
-
-        Registros, imagens e materiais utilizados
-        durante o desenvolvimento do projeto.
-
-    </p>
-
-
-
-    <div class="gallery">
-
-
-        <figure>
-
-            <img
-                src="imagens/arco-iris-1.jpg"
-                alt="Imagem de arco-íris">
-
-            <figcaption>
-                01 // ARCO-ÍRIS
-            </figcaption>
-
-        </figure>
-
-
-        <figure>
-
-            <img
-                src="imagens/arco-iris-2.jpg"
-                alt="Imagem relacionada ao arco-íris">
-
-            <figcaption>
-                02 // LUZ E ÁGUA
-            </figcaption>
-
-        </figure>
-
-
-        <figure>
-
-            <img
-                src="imagens/luz-1.jpg"
-                alt="Imagem sobre luz">
-
-            <figcaption>
-                03 // LUZ
-            </figcaption>
-
-        </figure>
-
-
-        <figure>
-
-            <img
-                src="imagens/experimento.jpg"
-                alt="Registro do experimento">
-
-            <figcaption>
-                04 // EXPERIMENTO
-            </figcaption>
-
-        </figure>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     CONCLUSÃO
-================================================== -->
-
-<section class="conclusion" id="conclusao">
-
-
-    <div class="conclusion-content">
-
-
-        <div>
-
-            <span>
-                08 // CONCLUSÃO
-            </span>
-
-
-            <h2>
-
-                UMA LUZ QUE
-
-                <strong>
-                    REVELA AS CORES.
-                </strong>
-
-            </h2>
-
-
+    <div class="process">
+
+        <article>
+            <span>01</span>
+            <h3>Luciferina</h3>
             <p>
-
-                O arco-íris é um exemplo de como
-                fenômenos físicos podem transformar
-                algo comum, como a luz do Sol e a água,
-                em um espetáculo de cores.
-
+                Molécula que participa da reação
+                responsável pela produção da luz.
             </p>
+        </article>
 
 
+        <article>
+            <span>02</span>
+            <h3>Luciferase</h3>
             <p>
-
-                Ao estudar a refração, reflexão e
-                dispersão da luz, podemos compreender
-                melhor como esse fenômeno acontece
-                e perceber a ciência presente no
-                nosso cotidiano.
-
+                Enzima que ajuda a acelerar
+                a reação química.
             </p>
+        </article>
 
 
-        </div>
+        <article>
+            <span>03</span>
+            <h3>Energia</h3>
+            <p>
+                A energia química é transformada
+                em energia luminosa.
+            </p>
+        </article>
 
 
-        <div class="conclusion-light">
+        <article>
+            <span>04</span>
+            <h3>Luz</h3>
+            <p>
+                O organismo libera a luz,
+                que pode apresentar diferentes cores.
+            </p>
+        </article>
 
-            <div class="big-light"></div>
+    </div>
 
-            <div class="small-light sl1"></div>
-            <div class="small-light sl2"></div>
-            <div class="small-light sl3"></div>
-            <div class="small-light sl4"></div>
 
-        </div>
+    <div class="equation">
 
+        <p>
+            Luciferina + O₂ + energia
+            <strong>→</strong>
+            Oxiluciferina + <span>LUZ</span>
+        </p>
 
     </div>
 
 </section>
 
 
+<!-- EXEMPLOS -->
 
-<!-- ==================================================
-     FONTES
-================================================== -->
+<section class="section" id="exemplos">
 
-<section class="sources">
+    <div class="title">
 
-
-    <div>
-
-        <span>
-            FONTES DE PESQUISA
-        </span>
+        <p class="eyebrow">
+            03 — DIVERSIDADE
+        </p>
 
         <h2>
-            Referências
+            Exemplos de
+            <span>seres bioluminescentes</span>
         </h2>
 
     </div>
 
 
-    <div class="source-links">
+    <div class="examples">
+
+        <article class="species">
+
+            <div class="species-image jellyfish"></div>
+
+            <div class="species-content">
+
+                <small>MARINHO</small>
+
+                <h3>Água-viva</h3>
+
+                <p>
+                    Algumas espécies de águas-vivas
+                    conseguem produzir luz quando são
+                    estimuladas ou perturbadas.
+                </p>
+
+            </div>
+
+        </article>
 
 
-        <a
-            href="https://science.nasa.gov/earth/earth-observatory/rainbows/"
-            target="_blank"
-            rel="noopener noreferrer">
+        <article class="species">
 
-            NASA
+            <div class="species-image firefly"></div>
 
-            <span>↗</span>
+            <div class="species-content">
 
-        </a>
+                <small>TERRESTRE</small>
 
+                <h3>Vaga-lume</h3>
 
-        <a
-            href="https://www.britannica.com/science/rainbow-atmospheric-phenomenon"
-            target="_blank"
-            rel="noopener noreferrer">
+                <p>
+                    Utiliza sua luz principalmente
+                    para comunicação e reprodução.
+                </p>
 
-            Britannica
+            </div>
 
-            <span>↗</span>
-
-        </a>
+        </article>
 
 
-        <a
-            href="https://www.weather.gov/jetstream/rainbow"
-            target="_blank"
-            rel="noopener noreferrer">
+        <article class="species">
 
-            National Weather Service
+            <div class="species-image plankton"></div>
 
-            <span>↗</span>
+            <div class="species-content">
 
-        </a>
+                <small>MICROSCÓPICO</small>
 
+                <h3>Fitoplâncton</h3>
+
+                <p>
+                    Alguns dinoflagelados produzem
+                    flashes azulados quando a água
+                    é movimentada.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="species">
+
+            <div class="species-image fungi"></div>
+
+            <div class="species-content">
+
+                <small>FUNGO</small>
+
+                <h3>Fungos luminosos</h3>
+
+                <p>
+                    Existem fungos capazes de produzir
+                    uma luz esverdeada.
+                </p>
+
+            </div>
+
+        </article>
 
     </div>
 
 </section>
 
 
+<!-- FUNÇÕES -->
+
+<section class="section functions" id="funcoes">
+
+    <div class="center-title">
+
+        <p class="eyebrow">
+            04 — FUNÇÕES
+        </p>
+
+        <h2>
+            Para que serve a
+            <span>bioluminescência?</span>
+        </h2>
+
+    </div>
+
+
+    <div class="function-grid">
+
+        <article>
+
+            <div class="icon">🛡️</div>
+
+            <h3>Defesa</h3>
+
+            <p>
+                Pode assustar ou confundir
+                predadores.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <div class="icon">🎯</div>
+
+            <h3>Predação</h3>
+
+            <p>
+                Alguns organismos utilizam
+                a luz para atrair presas.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <div class="icon">💬</div>
+
+            <h3>Comunicação</h3>
+
+            <p>
+                Pode ser usada para comunicação
+                entre indivíduos da mesma espécie.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <div class="icon">🫥</div>
+
+            <h3>Camuflagem</h3>
+
+            <p>
+                Pode ajudar organismos marinhos
+                a esconder sua silhueta.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- FLASHCARDS -->
+
+<section class="section dark" id="curiosidades">
+
+    <div class="title">
+
+        <p class="eyebrow">
+            05 — CURIOSIDADES
+        </p>
+
+        <h2>
+            Mitos &
+            <span>Verdades</span>
+        </h2>
+
+        <p>
+            Clique nos cards para descobrir a resposta.
+        </p>
+
+    </div>
+
+
+    <div class="flashcards">
+
+
+        <button class="flashcard">
+
+            <span>01</span>
+
+            <small>VERDADEIRO OU FALSO?</small>
+
+            <strong>
+                Todo organismo bioluminescente
+                vive no mar.
+            </strong>
+
+            <div class="answer">
+                <b>MITO!</b>
+
+                <p>
+                    Existem organismos terrestres
+                    bioluminescentes, como vaga-lumes
+                    e alguns fungos.
+                </p>
+            </div>
+
+            <em>clique para revelar</em>
+
+        </button>
+
+
+        <button class="flashcard">
+
+            <span>02</span>
+
+            <small>VERDADEIRO OU FALSO?</small>
+
+            <strong>
+                O brilho do vaga-lume
+                é produzido por uma reação química.
+            </strong>
+
+            <div class="answer">
+                <b>VERDADE!</b>
+
+                <p>
+                    A luz é produzida por uma
+                    reação bioquímica.
+                </p>
+            </div>
+
+            <em>clique para revelar</em>
+
+        </button>
+
+
+        <button class="flashcard">
+
+            <span>03</span>
+
+            <small>VERDADEIRO OU FALSO?</small>
+
+            <strong>
+                Bioluminescência e fluorescência
+                são a mesma coisa.
+            </strong>
+
+            <div class="answer">
+                <b>MITO!</b>
+
+                <p>
+                    Bioluminescência produz luz
+                    através de uma reação química.
+                </p>
+            </div>
+
+            <em>clique para revelar</em>
+
+        </button>
+
+
+        <button class="flashcard">
+
+            <span>04</span>
+
+            <small>VERDADEIRO OU FALSO?</small>
+
+            <strong>
+                A bioluminescência pode ajudar
+                na defesa contra predadores.
+            </strong>
+
+            <div class="answer">
+                <b>VERDADE!</b>
+
+                <p>
+                    O brilho pode assustar,
+                    confundir ou distrair predadores.
+                </p>
+            </div>
+
+            <em>clique para revelar</em>
+
+        </button>
+
+
+        <button class="flashcard">
+
+            <span>05</span>
+
+            <small>VERDADEIRO OU FALSO?</small>
+
+            <strong>
+                A luz bioluminescente
+                sempre é azul.
+            </strong>
+
+            <div class="answer">
+                <b>MITO!</b>
+
+                <p>
+                    Existem diferentes cores,
+                    embora o azul seja muito comum
+                    no ambiente marinho.
+                </p>
+            </div>
+
+            <em>clique para revelar</em>
+
+        </button>
+
+
+        <button class="flashcard">
+
+            <span>06</span>
+
+            <small>VERDADEIRO OU FALSO?</small>
+
+            <strong>
+                O mar pode brilhar devido
+                a microrganismos.
+            </strong>
+
+            <div class="answer">
+                <b>VERDADE!</b>
+
+                <p>
+                    Dinoflagelados podem produzir
+                    flashes luminosos quando a água
+                    é movimentada.
+                </p>
+            </div>
+
+            <em>clique para revelar</em>
+
+        </button>
+
+
+        <button class="flashcard">
+
+            <span>07</span>
+
+            <small>CURIOSIDADE</small>
+
+            <strong>
+                A bioluminescência pode ser
+                usada pela ciência?
+            </strong>
+
+            <div class="answer">
+                <b>SIM!</b>
+
+                <p>
+                    Sistemas bioluminescentes são
+                    estudados em pesquisas científicas
+                    e biotecnologia.
+                </p>
+            </div>
+
+            <em>clique para revelar</em>
+
+        </button>
+
+
+        <button class="flashcard">
+
+            <span>08</span>
+
+            <small>CURIOSIDADE</small>
+
+            <strong>
+                Todos os organismos produzem
+                luz da mesma maneira?
+            </strong>
+
+            <div class="answer">
+                <b>NÃO!</b>
+
+                <p>
+                    Diferentes organismos possuem
+                    mecanismos bioquímicos diferentes.
+                </p>
+            </div>
+
+            <em>clique para revelar</em>
+
+        </button>
+
+
+        <button class="flashcard">
+
+            <span>09</span>
+
+            <small>CURIOSIDADE</small>
+
+            <strong>
+                A bioluminescência é resultado
+                da evolução?
+            </strong>
+
+            <div class="answer">
+                <b>SIM!</b>
+
+                <p>
+                    Ela surgiu e se diversificou
+                    independentemente em diferentes
+                    grupos de organismos.
+                </p>
+            </div>
+
+            <em>clique para revelar</em>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- MARAGOGI -->
+
+<section class="image-section maragogi">
+
+    <div class="image-text">
+
+        <p>AMBIENTE MARINHO</p>
+
+        <h2>
+            A natureza iluminando
+            a escuridão.
+        </h2>
+
+    </div>
+
+</section>
+
+
+<!-- CONCLUSÃO -->
+
+<section class="section conclusion" id="conclusao">
+
+    <div class="conclusion-content">
+
+        <div>
+
+            <p class="eyebrow">
+                06 — CONCLUSÃO
+            </p>
+
+            <h2>
+                Uma estratégia que parece
+                <span>mágica</span>, mas é ciência.
+            </h2>
+
+            <p>
+                A bioluminescência demonstra como os organismos
+                desenvolveram diferentes estratégias para produzir luz.
+            </p>
+
+            <p>
+                Ela pode ser utilizada para defesa, comunicação,
+                caça e camuflagem.
+            </p>
+
+            <p>
+                O fenômeno também mostra a relação entre
+                biologia, química e ecologia.
+            </p>
+
+        </div>
+
+        <div class="firefly">
+            ✦
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EVIDÊNCIAS -->
+
+<section class="section evidence" id="evidencias">
+
+    <div class="title">
+
+        <p class="eyebrow">
+            EVIDÊNCIAS DAS AULAS PRÁTICAS
+        </p>
+
+        <h2>
+            Galeria da
+            <span>pesquisa</span>
+        </h2>
+
+        <p>
+            Espaço destinado aos registros visuais
+            das atividades realizadas.
+        </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80">
+            <figcaption>01 — Ambiente marinho</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=900&q=80">
+            <figcaption>02 — Organismo marinho</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=80">
+            <figcaption>03 — Natureza</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1544550285-f813152fb2fd?auto=format&fit=crop&w=900&q=80">
+            <figcaption>04 — Ambiente aquático</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80">
+            <figcaption>05 — Observação noturna</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=900&q=80">
+            <figcaption>06 — Registro da pesquisa</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1507371341162-763b5e419408?auto=format&fit=crop&w=900&q=80">
+            <figcaption>07 — Natureza</figcaption>
+        </figure>
+
+    </div>
+
+</section>
+
+
+<!-- FONTES -->
+
+<section class="sources">
+
+    <div>
+
+        <p class="eyebrow">
+            FONTES DE PESQUISA
+        </p>
+
+        <h2>
+            Para saber mais
+        </h2>
+
+    </div>
+
+
+    <div class="source-list">
+
+        <a href="https://oceanservice.noaa.gov/facts/bioluminescence.html" target="_blank">
+            NOAA Ocean Service ↗
+        </a>
+
+        <a href="https://www.britannica.com/science/bioluminescence" target="_blank">
+            Encyclopaedia Britannica ↗
+        </a>
+
+        <a href="https://www.si.edu/spotlight/buginfo/bioluminescence" target="_blank">
+            Smithsonian Institution ↗
+        </a>
+
+    </div>
+
+</section>
 
 </main>
 
 
-
-<!-- ==================================================
-     RODAPÉ
-================================================== -->
+<!-- RODAPÉ -->
 
 <footer>
 
+    <div class="footer-content">
 
-    <div class="footer-main">
-
-
-        <div class="footer-brand">
+        <div>
 
             <div class="logo">
-
-                <div class="logo-symbol">
-                    🌈
-                </div>
-
-                <div class="logo-text">
-
-                    <strong>A MAGIA</strong>
-
-                    <span>DAS CORES</span>
-
-                </div>
-
+                <span class="logo-dot"></span>
+                BIOLUMI<span>NESCÊNCIA</span>
             </div>
 
-
             <p>
-                Projeto interdisciplinar escolar
+                Pesquisa escolar • Ciências da Natureza
             </p>
 
         </div>
 
 
-
         <div>
 
-            <small>
-                INTEGRANTES
-            </small>
+            <small>INTEGRANTES</small>
 
             <strong>
                 Barbara & Maria Clara
@@ -1796,59 +955,32 @@
         </div>
 
 
-
         <div>
 
-            <small>
-                INSTITUIÇÃO
-            </small>
+            <small>COLÉGIO ESTADUAL</small>
 
             <strong>
-
-                COLÉGIO ESTADUAL
                 PADRE CLÁUDIO MORELLI
-
             </strong>
 
         </div>
 
-
     </div>
 
 
-
-    <div class="footer-bottom">
-
-        ARCO-ÍRIS // PROJETO ESCOLAR
-
-        <span>
-            2026
-        </span>
-
+    <div class="copyright">
+        Projeto de pesquisa sobre Bioluminescência • 2026
     </div>
-
 
 </footer>
 
 
-
-<!-- ==================================================
-     BOTÃO VOLTAR AO TOPO
-================================================== -->
-
-<button
-    class="back-top"
-    id="backTop"
-    aria-label="Voltar ao topo">
-
+<button id="backTop">
     ↑
-
 </button>
-
 
 
 <script src="script.js"></script>
 
 </body>
-
 </html>

@@ -1,1424 +1,1365 @@
-/* ==================================================
-   MENU MOBILE
-================================================== */
+:root {
+    --background: #071019;
+    --background-dark: #050d14;
+    --card: #102431;
+    --cyan: #6ff7e8;
+    --cyan-dark: #19bcae;
+    --text: #edf8f8;
+    --muted: #9ab2b7;
+    --border: rgba(111, 247, 232, 0.16);
+}
 
-const mobileButton = document.getElementById("mobileButton");
-const navigation = document.getElementById("navigation");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-if (mobileButton && navigation) {
+html {
+    scroll-behavior: smooth;
+}
 
-    mobileButton.addEventListener("click", () => {
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
 
-        navigation.classList.toggle("open");
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-    });
+button {
+    font-family: inherit;
+}
+
+
+/* HEADER */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(7, 16, 25, 0.82);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav {
+    width: 92%;
+    max-width: 1160px;
+    height: 76px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: "Space Grotesk";
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--cyan);
+}
+
+.logo-dot {
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+
+    background: var(--cyan);
+
+    box-shadow: 0 0 18px var(--cyan);
+}
+
+.menu {
+    list-style: none;
+
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.menu a,
+.dropdown-button {
+    border: none;
+    background: transparent;
+
+    color: #c8d7da;
+
+    padding: 10px 14px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.menu a:hover,
+.dropdown-button:hover {
+    color: var(--cyan);
+}
+
+
+/* DROPDOWN */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+
+    top: 45px;
+    right: 0;
+
+    min-width: 190px;
+
+    list-style: none;
+
+    padding: 8px;
+
+    background: #0b1a24;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-10px);
+
+    transition: 0.25s;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+}
+
+
+/* MENU MOBILE */
+
+.menu-toggle {
+    display: none;
+
+    background: none;
+    border: none;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 80% 45%,
+            rgba(39,210,193,0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #06121b,
+            #071019
+        );
+}
+
+.hero-content {
+    width: 92%;
+    max-width: 1160px;
+
+    margin: auto;
+
+    padding-top: 70px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.eyebrow {
+    color: var(--cyan);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-family: "Space Grotesk";
+
+    font-size: clamp(48px, 7vw, 90px);
+
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+}
+
+.hero h1 span,
+h2 span {
+    color: var(--cyan);
+}
+
+.description {
+    max-width: 620px;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+    margin: 28px 0;
+}
+
+
+/* BOTÕES */
+
+.buttons {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.button {
+    padding: 13px 20px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.primary {
+    background: var(--cyan);
+
+    color: #06201e;
+}
+
+.primary:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(111,247,232,0.25);
+}
+
+.secondary {
+    border: 1px solid var(--border);
+}
+
+.secondary:hover {
+    border-color: var(--cyan);
+}
+
+
+/* ESTATÍSTICAS */
+
+.statistics {
+    display: flex;
+
+    gap: 30px;
+
+    margin-top: 50px;
+}
+
+.statistics div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.statistics strong {
+    font-family: "Space Grotesk";
+
+    font-size: 23px;
+}
+
+.statistics small {
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+/* ORBE */
+
+.hero-light {
+    min-height: 500px;
+
+    display: grid;
+
+    place-items: center;
+
+    position: relative;
+}
+
+.light-orb {
+    width: 400px;
+
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle,
+            #dffffb 0 2%,
+            #6ff7e8 5%,
+            #1caaa5 17%,
+            rgba(23,104,116,0.6) 35%,
+            transparent 70%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 50px
+            rgba(76,245,226,0.25)
+        );
+
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+}
+
+.light-core {
+    position: absolute;
+
+    width: 25%;
+
+    height: 25%;
+
+    top: 37.5%;
+    left: 37.5%;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 30px 10px
+        var(--cyan);
+}
+
+.particle {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    background: var(--cyan);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 15px var(--cyan);
+}
+
+.particle1 {
+    top: 20%;
+    left: 70%;
+}
+
+.particle2 {
+    top: 70%;
+    left: 20%;
+}
+
+.particle3 {
+    top: 75%;
+    left: 70%;
+}
+
+.particle4 {
+    top: 30%;
+    left: 20%;
+}
+
+.hero-light p {
+    position: absolute;
+
+    bottom: 25px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+
+/* SEÇÕES */
+
+.section {
+    padding: 120px 0;
+}
+
+.two-columns {
+    width: 92%;
+    max-width: 1160px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 90px;
+}
+
+.title h2,
+.center-title h2,
+.conclusion h2 {
+    font-family: "Space Grotesk";
+
+    font-size: clamp(36px,5vw,58px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+.text-card {
+    background: #0e202c;
+
+    padding: 32px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+}
+
+.text-card p {
+    color: #c0d0d3;
+
+    margin-bottom: 18px;
+}
+
+.text-card strong {
+    color: var(--cyan);
+}
+
+.fact {
+    padding: 16px;
+
+    border-left: 2px solid var(--cyan);
+
+    background: rgba(111,247,232,0.05);
+
+    font-size: 13px;
+}
+
+
+/* IMAGENS */
+
+.image-section {
+    height: 570px;
+
+    position: relative;
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 8%;
+}
+
+.beach {
+    background-image:
+        linear-gradient(
+            rgba(0,10,18,0.15),
+            rgba(0,10,18,0.85)
+        ),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85");
+}
+
+.maragogi {
+    background-image:
+        linear-gradient(
+            rgba(0,10,18,0.25),
+            rgba(0,10,18,0.85)
+        ),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=85");
+}
+
+.image-text p {
+    color: var(--cyan);
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+.image-text h2 {
+    font-family: "Space Grotesk";
+
+    font-size: clamp(35px,5vw,65px);
+
+    max-width: 650px;
+
+    line-height: 1.05;
+}
+
+
+/* SEÇÃO ESCURA */
+
+.dark {
+    background: var(--background-dark);
+}
+
+.center-title {
+    width: 92%;
+    max-width: 1160px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.center-title > p:last-child {
+    color: var(--muted);
+
+    margin-top: 15px;
+}
+
+
+/* PROCESSO */
+
+.process {
+    width: 92%;
+    max-width: 1160px;
+
+    margin: 45px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.process article {
+    padding: 25px;
+
+    background: #0b1a24;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    min-height: 190px;
+}
+
+.process span {
+    color: var(--cyan);
+
+    font-size: 12px;
+}
+
+.process h3 {
+    margin-top: 25px;
+
+    font-family: "Space Grotesk";
+
+    font-size: 20px;
+}
+
+.process p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 8px;
+}
+
+.equation {
+    width: 92%;
+    max-width: 1160px;
+
+    margin: 20px auto 0;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+}
+
+.equation p {
+    font-family: "Space Grotesk";
+
+    font-size: 19px;
+}
+
+.equation strong {
+    color: var(--cyan);
+
+    padding: 0 10px;
+}
+
+.equation span {
+    color: var(--cyan);
+}
+
+
+/* EXEMPLOS */
+
+.examples {
+    width: 92%;
+    max-width: 1160px;
+
+    margin: 45px auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 18px;
+}
+
+.species {
+    display: grid;
+
+    grid-template-columns: 190px 1fr;
+
+    background: #0b1922;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.species-image {
+    min-height: 210px;
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+.jellyfish {
+    background-image:
+        url("https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=700&q=80");
+}
+
+.firefly {
+    background-image:
+        url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=700&q=80");
+}
+
+.plankton {
+    background-image:
+        url("https://images.unsplash.com/photo-1544550285-f813152fb2fd?auto=format&fit=crop&w=700&q=80");
+}
+
+.fungi {
+    background-image:
+        url("https://images.unsplash.com/photo-1507371341162-763b5e419408?auto=format&fit=crop&w=700&q=80");
+}
+
+.species-content {
+    padding: 25px;
+}
+
+.species-content small {
+    color: var(--cyan);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+.species-content h3 {
+    font-family: "Space Grotesk";
+
+    font-size: 25px;
+
+    margin: 8px 0;
+}
+
+.species-content p {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* FUNÇÕES */
+
+.functions {
+    background: #eef7f5;
+
+    color: #0a1a20;
+}
+
+.functions .eyebrow {
+    color: #148f86;
+}
+
+.functions h2 span {
+    color: #078f84;
+}
+
+.function-grid {
+    width: 92%;
+    max-width: 1160px;
+
+    margin: 45px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 15px;
+}
+
+.function-grid article {
+    padding: 28px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    min-height: 220px;
+
+    border: 1px solid rgba(0,50,50,0.1);
+}
+
+.icon {
+    font-size: 28px;
+}
+
+.function-grid h3 {
+    font-family: "Space Grotesk";
+
+    margin: 20px 0 8px;
+}
+
+.function-grid p {
+    color: #587075;
+
+    font-size: 13px;
+}
+
+
+/* FLASHCARDS */
+
+.flashcards {
+    width: 92%;
+    max-width: 1160px;
+
+    margin: 45px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 16px;
+}
+
+.flashcard {
+    min-height: 275px;
+
+    padding: 27px;
+
+    position: relative;
+
+    text-align: left;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0e2632,
+            #091721
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition: 0.25s;
+}
+
+.flashcard:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--cyan);
+}
+
+.flashcard > span {
+    position: absolute;
+
+    right: 20px;
+    top: 17px;
+
+    color: #4b676e;
+
+    font-family: "Space Grotesk";
+}
+
+.flashcard small {
+    display: block;
+
+    color: var(--cyan);
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 28px;
+}
+
+.flashcard strong {
+    display: block;
+
+    font-family: "Space Grotesk";
+
+    font-size: 20px;
+
+    line-height: 1.35;
+}
+
+.answer {
+    position: absolute;
+
+    inset: 0;
+
+    padding: 30px;
+
+    background: #061921;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition: 0.3s;
+}
+
+.answer b {
+    color: var(--cyan);
+
+    font-size: 22px;
+}
+
+.answer p {
+    color: #b8cacc;
+
+    font-size: 13px;
+
+    margin-top: 10px;
+}
+
+.flashcard.active .answer {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.flashcard em {
+    position: absolute;
+
+    bottom: 18px;
+    left: 27px;
+
+    color: #667f84;
+
+    font-size: 10px;
+}
+
+
+/* CONCLUSÃO */
+
+.conclusion {
+    background: #081720;
+}
+
+.conclusion-content {
+    width: 92%;
+    max-width: 1160px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.conclusion p:not(.eyebrow) {
+    color: var(--muted);
+
+    margin-top: 20px;
+
+    max-width: 650px;
+}
+
+.firefly {
+    height: 350px;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 100px;
+
+    color: var(--cyan);
+
+    text-shadow:
+        0 0 20px var(--cyan),
+        0 0 60px var(--cyan),
+        0 0 120px var(--cyan);
+
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
 
 }
 
 
+/* EVIDÊNCIAS */
 
-/* ==================================================
-   DROPDOWN DE PESQUISA
-================================================== */
+.evidence {
+    background: #f1f7f6;
 
-const researchDropdown =
-    document.querySelector(".research-dropdown");
+    color: #0a1b20;
+}
 
-const researchButton =
-    document.getElementById("researchButton");
+.evidence .eyebrow {
+    color: #138f86;
+}
+
+.evidence h2 span {
+    color: #0c9187;
+}
+
+.evidence .title {
+    width: 92%;
+    max-width: 1160px;
+
+    margin: auto;
+}
+
+.evidence .title > p:last-child {
+    color: #617579;
+
+    margin-top: 12px;
+}
+
+.gallery {
+    width: 92%;
+    max-width: 1160px;
+
+    margin: 45px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 13px;
+}
+
+.gallery figure {
+    margin: 0;
+
+    background: white;
+
+    border-radius: 17px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(0,40,45,0.1);
+}
+
+.gallery img {
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.gallery figcaption {
+    padding: 13px 15px;
+
+    color: #657a7e;
+
+    font-size: 11px;
+}
 
 
-if (researchButton && researchDropdown) {
+/* FONTES */
 
-    researchButton.addEventListener("click", (event) => {
+.sources {
+    background: #dfecea;
 
-        event.stopPropagation();
+    color: #0a1b20;
 
-        researchDropdown.classList.toggle("open");
+    padding: 70px 5%;
 
-    });
+    display: grid;
+
+    grid-template-columns:
+        0.7fr 1.3fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.sources h2 {
+    font-family: "Space Grotesk";
+
+    font-size: 38px;
+}
+
+.source-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 10px;
+}
+
+.source-list a {
+    padding: 17px;
+
+    border: 1px solid rgba(0,40,45,0.15);
+
+    border-radius: 12px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.source-list a:hover {
+    border-color: #0c9187;
+}
+
+
+/* FOOTER */
+
+footer {
+    background: #050c12;
+
+    padding: 55px 5% 25px;
+}
+
+.footer-content {
+    max-width: 1160px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.3fr 1fr 1fr;
+
+    gap: 30px;
+}
+
+.footer-content p {
+    color: #6f868b;
+
+    font-size: 12px;
+
+    margin-top: 8px;
+}
+
+.footer-content small {
+    color: #5d757a;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.footer-content strong {
+    display: block;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+.copyright {
+    max-width: 1160px;
+
+    margin: 40px auto 0;
+
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255,255,255,0.07);
+
+    color: #50666c;
+
+    font-size: 10px;
+}
+
+
+/* BOTÃO TOPO */
+
+#backTop {
+    position: fixed;
+
+    right: 22px;
+    bottom: 22px;
+
+    width: 43px;
+    height: 43px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--border);
+
+    background: #102733;
+
+    color: var(--cyan);
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: 0.2s;
+
+    z-index: 100;
+}
+
+#backTop.show {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+
+        position: absolute;
+
+        top: 76px;
+
+        left: 4%;
+        right: 4%;
+
+        padding: 10px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        background: #0b1a24;
+
+        border: 1px solid var(--border);
+
+        border-radius: 15px;
+    }
+
+    .menu.open {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: static;
+
+        display: none;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    .hero-content,
+    .two-columns,
+    .conclusion-content,
+    .sources {
+        grid-template-columns: 1fr;
+    }
+
+    .process,
+    .function-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .flashcards {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .examples {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2,1fr);
+    }
 
 }
 
 
+@media (max-width: 600px) {
 
-/* ==================================================
-   FECHAR MENU AO CLICAR EM UM LINK
-================================================== */
-
-document
-    .querySelectorAll(".navigation a")
-    .forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            if (navigation) {
-                navigation.classList.remove("open");
-            }
-
-            if (researchDropdown) {
-                researchDropdown.classList.remove("open");
-            }
-
-        });
-
-    });
-
-
-
-/* ==================================================
-   FECHAR DROPDOWN AO CLICAR FORA
-================================================== */
-
-document.addEventListener("click", (event) => {
-
-    if (
-        researchDropdown &&
-        !researchDropdown.contains(event.target)
-    ) {
-
-        researchDropdown.classList.remove("open");
-
+    .nav {
+        height: 68px;
     }
 
-});
+    .hero h1 {
+        font-size: 48px;
 
-
-
-/* ==================================================
-   ANIMAÇÃO DO ARCO-ÍRIS
-================================================== */
-
-const canvas =
-    document.getElementById("oceanCanvas");
-
-
-if (canvas) {
-
-    const ctx =
-        canvas.getContext("2d");
-
-
-    let particles = [];
-
-    let rainbowDrops = [];
-
-    let explosions = [];
-
-
-    /* ==================================================
-       TAMANHO DO CANVAS
-    ================================================== */
-
-    function resizeCanvas() {
-
-        const rect =
-            canvas.getBoundingClientRect();
-
-        const dpr =
-            window.devicePixelRatio || 1;
-
-
-        canvas.width =
-            rect.width * dpr;
-
-        canvas.height =
-            rect.height * dpr;
-
-
-        ctx.setTransform(
-            dpr,
-            0,
-            0,
-            dpr,
-            0,
-            0
-        );
-
+        letter-spacing: -2px;
     }
 
-
-    resizeCanvas();
-
-
-    window.addEventListener(
-        "resize",
-        resizeCanvas
-    );
-
-
-
-    /* ==================================================
-       CRIAR PARTÍCULA
-    ================================================== */
-
-    function createParticle() {
-
-        const rect =
-            canvas.getBoundingClientRect();
-
-
-        return {
-
-            x:
-                Math.random() *
-                rect.width,
-
-            y:
-                Math.random() *
-                rect.height,
-
-            radius:
-                Math.random() * 2 + 0.5,
-
-            speed:
-                Math.random() * 0.35 + 0.1,
-
-            alpha:
-                Math.random() * 0.6 + 0.2,
-
-            phase:
-                Math.random() *
-                Math.PI * 2
-
-        };
-
+    .hero-light {
+        min-height: 320px;
     }
 
-
-
-    /* ==================================================
-       CRIAR GOTAS
-    ================================================== */
-
-    function createDrop() {
-
-        const rect =
-            canvas.getBoundingClientRect();
-
-
-        return {
-
-            x:
-                Math.random() *
-                rect.width,
-
-            y:
-                Math.random() *
-                rect.height,
-
-            radius:
-                Math.random() * 2 + 1,
-
-            speed:
-                Math.random() * 1 + 0.4,
-
-            alpha:
-                Math.random() * 0.5 + 0.2
-
-        };
-
+    .light-orb {
+        width: 280px;
     }
 
-
-
-    /* ==================================================
-       POPULAR CANVAS
-    ================================================== */
-
-    function createParticles() {
-
-        particles = [];
-
-        rainbowDrops = [];
-
-
-        for (
-            let i = 0;
-            i < 80;
-            i++
-        ) {
-
-            particles.push(
-                createParticle()
-            );
-
-        }
-
-
-        for (
-            let i = 0;
-            i < 30;
-            i++
-        ) {
-
-            rainbowDrops.push(
-                createDrop()
-            );
-
-        }
-
+    .process,
+    .function-grid,
+    .flashcards,
+    .gallery {
+        grid-template-columns: 1fr;
     }
 
-
-    createParticles();
-
-
-
-    /* ==================================================
-       DESENHAR PARTÍCULA
-    ================================================== */
-
-    function drawParticle(
-        particle
-    ) {
-
-        particle.phase += 0.02;
-
-
-        const pulse =
-            Math.sin(
-                particle.phase
-            ) * 0.5 + 0.5;
-
-
-        const radius =
-            particle.radius *
-            (0.8 + pulse);
-
-
-        const gradient =
-            ctx.createRadialGradient(
-                particle.x,
-                particle.y,
-                0,
-                particle.x,
-                particle.y,
-                radius * 6
-            );
-
-
-        gradient.addColorStop(
-            0,
-            `rgba(255,255,255,${particle.alpha})`
-        );
-
-
-        gradient.addColorStop(
-            0.3,
-            `rgba(120,220,255,${particle.alpha * 0.6})`
-        );
-
-
-        gradient.addColorStop(
-            1,
-            "rgba(255,255,255,0)"
-        );
-
-
-        ctx.beginPath();
-
-        ctx.fillStyle =
-            gradient;
-
-        ctx.arc(
-            particle.x,
-            particle.y,
-            radius * 6,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.fill();
-
+    .species {
+        grid-template-columns: 1fr;
     }
 
-
-
-    /* ==================================================
-       DESENHAR GOTAS
-    ================================================== */
-
-    function drawDrop(drop) {
-
-        ctx.beginPath();
-
-        ctx.fillStyle =
-            `rgba(150,220,255,${drop.alpha})`;
-
-        ctx.arc(
-            drop.x,
-            drop.y,
-            drop.radius,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.fill();
-
+    .species-image {
+        height: 220px;
     }
 
-
-
-    /* ==================================================
-       ATUALIZAR PARTÍCULAS
-    ================================================== */
-
-    function updateParticles() {
-
-        const rect =
-            canvas.getBoundingClientRect();
-
-
-        particles.forEach(
-            particle => {
-
-                particle.y -=
-                    particle.speed;
-
-
-                particle.x +=
-                    Math.sin(
-                        particle.phase
-                    ) * 0.15;
-
-
-                if (
-                    particle.y < -10
-                ) {
-
-                    particle.y =
-                        rect.height + 10;
-
-                    particle.x =
-                        Math.random() *
-                        rect.width;
-
-                }
-
-            }
-        );
-
-
-        rainbowDrops.forEach(
-            drop => {
-
-                drop.y +=
-                    drop.speed;
-
-
-                if (
-                    drop.y >
-                    rect.height + 10
-                ) {
-
-                    drop.y = -10;
-
-                    drop.x =
-                        Math.random() *
-                        rect.width;
-
-                }
-
-            }
-        );
-
+    .image-section {
+        height: 450px;
     }
 
-
-
-    /* ==================================================
-       DESENHAR ARCO-ÍRIS
-    ================================================== */
-
-    function drawRainbow() {
-
-        const rect =
-            canvas.getBoundingClientRect();
-
-
-        const centerX =
-            rect.width * 0.72;
-
-
-        const centerY =
-            rect.height * 0.88;
-
-
-        const radius =
-            Math.min(
-                rect.width * 0.55,
-                rect.height * 0.9
-            );
-
-
-        const colors = [
-
-            "#ff3b30",
-            "#ff9500",
-            "#ffd60a",
-            "#34c759",
-            "#00c7ff",
-            "#5856d6",
-            "#af52de"
-
-        ];
-
-
-        colors.forEach(
-            (color, index) => {
-
-                ctx.beginPath();
-
-
-                ctx.strokeStyle =
-                    color;
-
-
-                ctx.globalAlpha =
-                    0.65;
-
-
-                ctx.lineWidth =
-                    8;
-
-
-                ctx.arc(
-
-                    centerX,
-
-                    centerY,
-
-                    radius -
-                    index * 10,
-
-                    Math.PI,
-
-                    Math.PI * 2
-
-                );
-
-
-                ctx.stroke();
-
-            }
-        );
-
-
-        ctx.globalAlpha = 1;
-
+    .section {
+        padding: 85px 0;
     }
 
-
-
-    /* ==================================================
-       DESENHAR BRILHO DO ARCO-ÍRIS
-    ================================================== */
-
-    function drawRainbowGlow() {
-
-        const rect =
-            canvas.getBoundingClientRect();
-
-
-        const centerX =
-            rect.width * 0.72;
-
-
-        const centerY =
-            rect.height * 0.88;
-
-
-        const radius =
-            Math.min(
-                rect.width * 0.55,
-                rect.height * 0.9
-            );
-
-
-        const gradient =
-            ctx.createRadialGradient(
-
-                centerX,
-                centerY - radius * 0.45,
-                10,
-
-                centerX,
-                centerY - radius * 0.45,
-                radius
-
-            );
-
-
-        gradient.addColorStop(
-            0,
-            "rgba(255,255,255,0.12)"
-        );
-
-
-        gradient.addColorStop(
-            0.4,
-            "rgba(100,180,255,0.05)"
-        );
-
-
-        gradient.addColorStop(
-            1,
-            "rgba(0,0,0,0)"
-        );
-
-
-        ctx.fillStyle =
-            gradient;
-
-
-        ctx.fillRect(
-            0,
-            0,
-            rect.width,
-            rect.height
-        );
-
+    .footer-content {
+        grid-template-columns: 1fr;
     }
 
-
-
-    /* ==================================================
-       EXPLOSÃO COLORIDA
-    ================================================== */
-
-    function createExplosion(
-        x,
-        y
-    ) {
-
-        explosions.push({
-
-            x: x,
-
-            y: y,
-
-            radius: 2,
-
-            alpha: 1
-
-        });
-
+    .source-list {
+        grid-template-columns: 1fr;
     }
-
-
-
-    /* ==================================================
-       DESENHAR EXPLOSÕES
-    ================================================== */
-
-    function drawExplosions() {
-
-        explosions.forEach(
-            explosion => {
-
-                explosion.radius += 2;
-
-                explosion.alpha -= 0.025;
-
-
-                const gradient =
-                    ctx.createRadialGradient(
-
-                        explosion.x,
-                        explosion.y,
-                        0,
-
-                        explosion.x,
-                        explosion.y,
-                        explosion.radius
-
-                    );
-
-
-                gradient.addColorStop(
-                    0,
-                    `rgba(255,255,255,${explosion.alpha})`
-                );
-
-
-                gradient.addColorStop(
-                    0.25,
-                    `rgba(255,220,100,${explosion.alpha})`
-                );
-
-
-                gradient.addColorStop(
-                    0.5,
-                    `rgba(120,200,255,${explosion.alpha * 0.6})`
-                );
-
-
-                gradient.addColorStop(
-                    1,
-                    "rgba(255,255,255,0)"
-                );
-
-
-                ctx.beginPath();
-
-                ctx.fillStyle =
-                    gradient;
-
-                ctx.arc(
-
-                    explosion.x,
-                    explosion.y,
-                    explosion.radius,
-                    0,
-                    Math.PI * 2
-
-                );
-
-                ctx.fill();
-
-            }
-        );
-
-
-        explosions =
-            explosions.filter(
-                explosion =>
-                    explosion.alpha > 0
-            );
-
-    }
-
-
-
-    /* ==================================================
-       LOOP PRINCIPAL
-    ================================================== */
-
-    function animateRainbow() {
-
-        const rect =
-            canvas.getBoundingClientRect();
-
-
-        ctx.clearRect(
-            0,
-            0,
-            rect.width,
-            rect.height
-        );
-
-
-        /* Fundo */
-
-        const background =
-            ctx.createLinearGradient(
-                0,
-                0,
-                0,
-                rect.height
-            );
-
-
-        background.addColorStop(
-            0,
-            "rgba(15,25,70,0.08)"
-        );
-
-
-        background.addColorStop(
-            0.5,
-            "rgba(70,100,180,0.08)"
-        );
-
-
-        background.addColorStop(
-            1,
-            "rgba(100,180,255,0.15)"
-        );
-
-
-        ctx.fillStyle =
-            background;
-
-
-        ctx.fillRect(
-            0,
-            0,
-            rect.width,
-            rect.height
-        );
-
-
-        drawRainbowGlow();
-
-
-        drawRainbow();
-
-
-        updateParticles();
-
-
-        particles.forEach(
-            drawParticle
-        );
-
-
-        rainbowDrops.forEach(
-            drawDrop
-        );
-
-
-        drawExplosions();
-
-
-        requestAnimationFrame(
-            animateRainbow
-        );
-
-    }
-
-
-    animateRainbow();
-
-
-
-    /* ==================================================
-       CLIQUE NO ARCO-ÍRIS
-    ================================================== */
-
-    canvas.addEventListener(
-        "click",
-        event => {
-
-            const rect =
-                canvas.getBoundingClientRect();
-
-
-            const x =
-                event.clientX -
-                rect.left;
-
-
-            const y =
-                event.clientY -
-                rect.top;
-
-
-            createExplosion(
-                x,
-                y
-            );
-
-        }
-    );
 
 }
-
-
-
-/* ==================================================
-   FLASHCARDS
-================================================== */
-
-const flashcards =
-    document.querySelectorAll(
-        ".flashcard"
-    );
-
-
-flashcards.forEach(
-    card => {
-
-        card.addEventListener(
-            "click",
-            () => {
-
-                card.classList.toggle(
-                    "revealed"
-                );
-
-            }
-        );
-
-    }
-);
-
-
-
-/* ==================================================
-   QUIZ
-================================================== */
-
-const quizQuestions = [
-
-    {
-
-        question:
-            "O que é necessário para formar um arco-íris?",
-
-        answers: [
-
-            "Luz solar e gotas de água",
-
-            "Somente luz da Lua",
-
-            "Somente vento",
-
-            "Apenas nuvens"
-
-        ],
-
-        correct: 0
-
-    },
-
-
-    {
-
-        question:
-            "O que acontece quando a luz entra em uma gota de água?",
-
-        answers: [
-
-            "Ela sofre refração",
-
-            "Ela desaparece",
-
-            "Ela vira som",
-
-            "Ela deixa de existir"
-
-        ],
-
-        correct: 0
-
-    },
-
-
-    {
-
-        question:
-            "A luz branca é formada por diferentes cores?",
-
-        answers: [
-
-            "Sim",
-
-            "Não",
-
-            "Somente durante a noite",
-
-            "Somente quando chove"
-
-        ],
-
-        correct: 0
-
-    },
-
-
-    {
-
-        question:
-            "Qual fenômeno ajuda a separar as cores da luz?",
-
-        answers: [
-
-            "Dispersão",
-
-            "Evaporação",
-
-            "Combustão",
-
-            "Fermentação"
-
-        ],
-
-        correct: 0
-
-    },
-
-
-    {
-
-        question:
-            "O arco-íris é um objeto físico que fica no céu?",
-
-        answers: [
-
-            "Não, é um fenômeno óptico",
-
-            "Sim, é um objeto sólido",
-
-            "Sim, é formado por nuvens",
-
-            "Sim, é formado por fumaça"
-
-        ],
-
-        correct: 0
-
-    }
-
-];
-
-
-let currentQuestion = 0;
-
-let score = 0;
-
-let answered = false;
-
-
-
-/* ==================================================
-   ELEMENTOS DO QUIZ
-================================================== */
-
-const questionElement =
-    document.getElementById(
-        "question"
-    );
-
-
-const answersElement =
-    document.getElementById(
-        "answers"
-    );
-
-
-const nextButton =
-    document.getElementById(
-        "nextQuestion"
-    );
-
-
-const progress =
-    document.getElementById(
-        "quizProgress"
-    );
-
-
-const scoreDisplay =
-    document.getElementById(
-        "scoreDisplay"
-    );
-
-
-const questionNumber =
-    document.getElementById(
-        "questionNumber"
-    );
-
-
-const questionArea =
-    document.getElementById(
-        "questionArea"
-    );
-
-
-const quizResult =
-    document.getElementById(
-        "quizResult"
-    );
-
-
-const finalScore =
-    document.getElementById(
-        "finalScore"
-    );
-
-
-const restartQuiz =
-    document.getElementById(
-        "restartQuiz"
-    );
-
-
-
-/* ==================================================
-   CARREGAR QUESTÃO
-================================================== */
-
-function loadQuestion() {
-
-    if (
-        !questionElement ||
-        !answersElement ||
-        !nextButton
-    ) {
-
-        return;
-
-    }
-
-
-    answered = false;
-
-
-    nextButton.disabled =
-        true;
-
-
-    const current =
-        quizQuestions[
-            currentQuestion
-        ];
-
-
-    questionElement.textContent =
-        current.question;
-
-
-    questionNumber.textContent =
-        `QUESTÃO ${String(
-            currentQuestion + 1
-        ).padStart(2, "0")} / ${String(
-            quizQuestions.length
-        ).padStart(2, "0")}`;
-
-
-    progress.style.width =
-        `${(
-            (currentQuestion + 1) /
-            quizQuestions.length
-        ) * 100}%`;
-
-
-    answersElement.innerHTML =
-        "";
-
-
-    current.answers.forEach(
-        (answer, index) => {
-
-            const button =
-                document.createElement(
-                    "button"
-                );
-
-
-            button.type =
-                "button";
-
-
-            button.textContent =
-                answer;
-
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    selectAnswer(
-                        button,
-                        index
-                    );
-
-                }
-            );
-
-
-            answersElement.appendChild(
-                button
-            );
-
-        }
-    );
-
-
-    scoreDisplay.textContent =
-        `${score} PONTOS`;
-
-}
-
-
-
-/* ==================================================
-   ESCOLHER RESPOSTA
-================================================== */
-
-function selectAnswer(
-    selectedButton,
-    selectedIndex
-) {
-
-    if (answered) {
-
-        return;
-
-    }
-
-
-    answered = true;
-
-
-    const current =
-        quizQuestions[
-            currentQuestion
-        ];
-
-
-    const buttons =
-        answersElement
-            .querySelectorAll(
-                "button"
-            );
-
-
-    buttons.forEach(
-        (button, index) => {
-
-            if (
-                index ===
-                current.correct
-            ) {
-
-                button.classList.add(
-                    "correct"
-                );
-
-            }
-
-        }
-    );
-
-
-    if (
-        selectedIndex ===
-        current.correct
-    ) {
-
-        selectedButton.classList.add(
-            "correct"
-        );
-
-
-        score += 10;
-
-    } else {
-
-        selectedButton.classList.add(
-            "wrong"
-        );
-
-    }
-
-
-    scoreDisplay.textContent =
-        `${score} PONTOS`;
-
-
-    nextButton.disabled =
-        false;
-
-}
-
-
-
-/* ==================================================
-   PRÓXIMA QUESTÃO
-================================================== */
-
-if (nextButton) {
-
-    nextButton.addEventListener(
-        "click",
-        () => {
-
-            currentQuestion++;
-
-
-            if (
-                currentQuestion >=
-                quizQuestions.length
-            ) {
-
-                finishQuiz();
-
-                return;
-
-            }
-
-
-            loadQuestion();
-
-        }
-    );
-
-}
-
-
-
-/* ==================================================
-   FINALIZAR QUIZ
-================================================== */
-
-function finishQuiz() {
-
-    if (!questionArea || !quizResult) {
-
-        return;
-
-    }
-
-
-    questionArea.style.display =
-        "none";
-
-
-    quizResult.classList.add(
-        "show"
-    );
-
-
-    finalScore.textContent =
-        `Você fez ${score} de ${
-            quizQuestions.length * 10
-        } pontos.`;
-
-}
-
-
-
-/* ==================================================
-   REINICIAR QUIZ
-================================================== */
-
-if (restartQuiz) {
-
-    restartQuiz.addEventListener(
-        "click",
-        () => {
-
-            currentQuestion = 0;
-
-            score = 0;
-
-
-            quizResult.classList.remove(
-                "show"
-            );
-
-
-            questionArea.style.display =
-                "block";
-
-
-            loadQuestion();
-
-        }
-    );
-
-}
-
-
-loadQuestion();
-
-
-
-/* ==================================================
-   BOTÃO VOLTAR AO TOPO
-================================================== */
-
-const backTop =
-    document.getElementById(
-        "backTop"
-    );
-
-
-if (backTop) {
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            if (
-                window.scrollY >
-                600
-            ) {
-
-                backTop.classList.add(
-                    "show"
-                );
-
-            } else {
-
-                backTop.classList.remove(
-                    "show"
-                );
-
-            }
-
-        }
-    );
-
-
-    backTop.addEventListener(
-        "click",
-        () => {
-
-            window.scrollTo({
-
-                top: 0,
-
-                behavior: "smooth"
-
-            });
-
-        }
-    );
-
-}
-
-
-
-/* ==================================================
-   ANIMAÇÃO DAS SEÇÕES
-================================================== */
-
-const observer =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(
-                entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-
-        {
-
-            threshold: 0.12
-
-        }
-
-    );
-
-
-document
-    .querySelectorAll(
-        ".research-section, .quiz-section, .conclusion, .sources"
-    )
-    .forEach(
-        section => {
-
-            observer.observe(
-                section
-            );
-
-        }
-    );
