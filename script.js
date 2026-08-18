@@ -2,23 +2,23 @@
    MENU MOBILE
 ================================================== */
 
-const mobileButton =
-    document.getElementById("mobileButton");
+const mobileButton = document.getElementById("mobileButton");
+const navigation = document.getElementById("navigation");
 
-const navigation =
-    document.getElementById("navigation");
+if (mobileButton && navigation) {
 
+    mobileButton.addEventListener("click", () => {
 
-mobileButton.addEventListener("click", () => {
+        navigation.classList.toggle("open");
 
-    navigation.classList.toggle("open");
+    });
 
-});
+}
 
 
 
 /* ==================================================
-   DROPDOWN
+   DROPDOWN DE PESQUISA
 ================================================== */
 
 const researchDropdown =
@@ -28,16 +28,22 @@ const researchButton =
     document.getElementById("researchButton");
 
 
-researchButton.addEventListener("click", () => {
+if (researchButton && researchDropdown) {
 
-    researchDropdown.classList.toggle("open");
+    researchButton.addEventListener("click", (event) => {
 
-});
+        event.stopPropagation();
+
+        researchDropdown.classList.toggle("open");
+
+    });
+
+}
 
 
 
 /* ==================================================
-   FECHAR MENU AO CLICAR
+   FECHAR MENU AO CLICAR EM UM LINK
 ================================================== */
 
 document
@@ -46,9 +52,13 @@ document
 
         link.addEventListener("click", () => {
 
-            navigation.classList.remove("open");
+            if (navigation) {
+                navigation.classList.remove("open");
+            }
 
-            researchDropdown.classList.remove("open");
+            if (researchDropdown) {
+                researchDropdown.classList.remove("open");
+            }
 
         });
 
@@ -57,621 +67,753 @@ document
 
 
 /* ==================================================
-   MAR DE BIOLUMINESCÊNCIA
+   FECHAR DROPDOWN AO CLICAR FORA
+================================================== */
+
+document.addEventListener("click", (event) => {
+
+    if (
+        researchDropdown &&
+        !researchDropdown.contains(event.target)
+    ) {
+
+        researchDropdown.classList.remove("open");
+
+    }
+
+});
+
+
+
+/* ==================================================
+   ANIMAÇÃO DO ARCO-ÍRIS
 ================================================== */
 
 const canvas =
     document.getElementById("oceanCanvas");
 
-const ctx =
-    canvas.getContext("2d");
+
+if (canvas) {
+
+    const ctx =
+        canvas.getContext("2d");
 
 
-let particles = [];
+    let particles = [];
 
-let explosions = [];
+    let rainbowDrops = [];
 
-let mouse = {
-
-    x: null,
-
-    y: null,
-
-    active: false
-
-};
+    let explosions = [];
 
 
+    /* ==================================================
+       TAMANHO DO CANVAS
+    ================================================== */
 
-/* ==================================================
-   TAMANHO DO CANVAS
-================================================== */
+    function resizeCanvas() {
 
-function resizeCanvas() {
+        const rect =
+            canvas.getBoundingClientRect();
 
-    const rect =
-        canvas.getBoundingClientRect();
-
-    canvas.width =
-        rect.width *
-        window.devicePixelRatio;
-
-    canvas.height =
-        rect.height *
-        window.devicePixelRatio;
-
-    ctx.setTransform(
-        window.devicePixelRatio,
-        0,
-        0,
-        window.devicePixelRatio,
-        0,
-        0
-    );
-
-}
+        const dpr =
+            window.devicePixelRatio || 1;
 
 
-resizeCanvas();
+        canvas.width =
+            rect.width * dpr;
+
+        canvas.height =
+            rect.height * dpr;
 
 
-window.addEventListener(
-    "resize",
-    resizeCanvas
-);
-
-
-
-/* ==================================================
-   CRIAR PARTÍCULA
-================================================== */
-
-function createParticle() {
-
-    const rect =
-        canvas.getBoundingClientRect();
-
-
-    return {
-
-        x:
-            Math.random() *
-            rect.width,
-
-        y:
-            rect.height *
-            (0.35 + Math.random() * 0.6),
-
-        radius:
-            Math.random() * 2.8 + 1,
-
-        speedX:
-            (Math.random() - .5) *
-            .35,
-
-        speedY:
-            -(Math.random() * .25 + .03),
-
-        alpha:
-            Math.random() * .6 + .25,
-
-        phase:
-            Math.random() * Math.PI * 2,
-
-        pulse:
-            Math.random() * .03 + .01,
-
-        blue:
-            Math.random() > .5
-
-    };
-
-}
-
-
-
-/* ==================================================
-   POPULAR O MAR
-================================================== */
-
-function createParticles() {
-
-    particles = [];
-
-    const amount = 95;
-
-
-    for (let i = 0; i < amount; i++) {
-
-        particles.push(
-            createParticle()
+        ctx.setTransform(
+            dpr,
+            0,
+            0,
+            dpr,
+            0,
+            0
         );
 
     }
 
-}
+
+    resizeCanvas();
 
 
-createParticles();
-
-
-
-/* ==================================================
-   DESENHAR PARTÍCULA
-================================================== */
-
-function drawParticle(particle) {
-
-    const pulse =
-        Math.sin(particle.phase) * .35 + .65;
-
-
-    const radius =
-        particle.radius *
-        (0.8 + pulse * .5);
-
-
-    const gradient =
-        ctx.createRadialGradient(
-            particle.x,
-            particle.y,
-            0,
-            particle.x,
-            particle.y,
-            radius * 8
-        );
-
-
-    gradient.addColorStop(
-        0,
-        `rgba(190,255,255,${particle.alpha})`
+    window.addEventListener(
+        "resize",
+        resizeCanvas
     );
 
 
-    gradient.addColorStop(
-        .12,
-        `rgba(0,245,255,${particle.alpha * .8})`
-    );
 
+    /* ==================================================
+       CRIAR PARTÍCULA
+    ================================================== */
 
-    gradient.addColorStop(
-        .4,
-        `rgba(0,150,255,${particle.alpha * .25})`
-    );
-
-
-    gradient.addColorStop(
-        1,
-        "rgba(0,120,255,0)"
-    );
-
-
-    ctx.beginPath();
-
-    ctx.fillStyle =
-        gradient;
-
-    ctx.arc(
-        particle.x,
-        particle.y,
-        radius * 8,
-        0,
-        Math.PI * 2
-    );
-
-    ctx.fill();
-
-
-    ctx.beginPath();
-
-    ctx.fillStyle =
-        particle.blue
-            ? "#32dfff"
-            : "#8affff";
-
-    ctx.globalAlpha =
-        particle.alpha + .25;
-
-    ctx.arc(
-        particle.x,
-        particle.y,
-        radius,
-        0,
-        Math.PI * 2
-    );
-
-    ctx.fill();
-
-    ctx.globalAlpha = 1;
-
-}
-
-
-
-/* ==================================================
-   ANIMAÇÃO DAS PARTÍCULAS
-================================================== */
-
-function updateParticles() {
-
-    const rect =
-        canvas.getBoundingClientRect();
-
-
-    particles.forEach(particle => {
-
-        particle.phase +=
-            particle.pulse;
-
-
-        particle.x +=
-            particle.speedX;
-
-
-        particle.y +=
-            particle.speedY;
-
-
-        /*
-         * Movimento suave de onda
-         */
-
-        particle.x +=
-            Math.sin(
-                particle.phase
-            ) * .12;
-
-
-        /*
-         * Se sair pelo topo,
-         * volta para baixo
-         */
-
-        if (particle.y < rect.height * .27) {
-
-            particle.y =
-                rect.height;
-
-            particle.x =
-                Math.random() *
-                rect.width;
-
-        }
-
-
-        /*
-         * Se sair pela lateral
-         */
-
-        if (particle.x < -20) {
-
-            particle.x =
-                rect.width + 20;
-
-        }
-
-
-        if (particle.x >
-            rect.width + 20) {
-
-            particle.x = -20;
-
-        }
-
-    });
-
-}
-
-
-
-/* ==================================================
-   LINHAS SUAVES DO MAR
-================================================== */
-
-function drawOceanWaves() {
-
-    const rect =
-        canvas.getBoundingClientRect();
-
-
-    for (
-        let wave = 0;
-        wave < 5;
-        wave++
-    ) {
-
-        ctx.beginPath();
-
-
-        for (
-            let x = 0;
-            x <= rect.width;
-            x += 8
-        ) {
-
-            const y =
-                rect.height * .60 +
-                wave * 42 +
-                Math.sin(
-                    x * .012 +
-                    Date.now() * .0005 +
-                    wave
-                ) * 10;
-
-
-            if (x === 0) {
-
-                ctx.moveTo(x, y);
-
-            } else {
-
-                ctx.lineTo(x, y);
-
-            }
-
-        }
-
-
-        ctx.strokeStyle =
-            `rgba(0,190,255,${.035 - wave * .004})`;
-
-
-        ctx.lineWidth = 1;
-
-        ctx.stroke();
-
-    }
-
-}
-
-
-
-/* ==================================================
-   EXPLOSÃO DE LUZ
-================================================== */
-
-function createExplosion(x, y) {
-
-    explosions.push({
-
-        x: x,
-
-        y: y,
-
-        radius: 2,
-
-        alpha: 1
-
-    });
-
-
-    /*
-     * Cria partículas extras
-     */
-
-    for (
-        let i = 0;
-        i < 12;
-        i++
-    ) {
-
-        particles.push({
-
-            x: x,
-
-            y: y,
-
-            radius:
-                Math.random() * 2 + 1,
-
-            speedX:
-                (Math.random() - .5) * 2,
-
-            speedY:
-                (Math.random() - .5) * 2,
-
-            alpha: 1,
-
-            phase: Math.random() * 6,
-
-            pulse: .05,
-
-            blue: true
-
-        });
-
-    }
-
-}
-
-
-
-/* ==================================================
-   DESENHAR EXPLOSÕES
-================================================== */
-
-function drawExplosions() {
-
-    explosions.forEach(
-        explosion => {
-
-            explosion.radius += 2;
-
-            explosion.alpha -= .025;
-
-
-            const gradient =
-                ctx.createRadialGradient(
-                    explosion.x,
-                    explosion.y,
-                    0,
-                    explosion.x,
-                    explosion.y,
-                    explosion.radius
-                );
-
-
-            gradient.addColorStop(
-                0,
-                `rgba(255,255,255,${explosion.alpha})`
-            );
-
-
-            gradient.addColorStop(
-                .2,
-                `rgba(0,255,255,${explosion.alpha})`
-            );
-
-
-            gradient.addColorStop(
-                1,
-                "rgba(0,180,255,0)"
-            );
-
-
-            ctx.beginPath();
-
-            ctx.fillStyle =
-                gradient;
-
-            ctx.arc(
-                explosion.x,
-                explosion.y,
-                explosion.radius,
-                0,
-                Math.PI * 2
-            );
-
-            ctx.fill();
-
-        }
-    );
-
-
-    explosions =
-        explosions.filter(
-            explosion =>
-                explosion.alpha > 0
-        );
-
-}
-
-
-
-/* ==================================================
-   LOOP PRINCIPAL
-================================================== */
-
-function animateOcean() {
-
-    const rect =
-        canvas.getBoundingClientRect();
-
-
-    ctx.clearRect(
-        0,
-        0,
-        rect.width,
-        rect.height
-    );
-
-
-    /*
-     * fundo do mar
-     */
-
-    const background =
-        ctx.createLinearGradient(
-            0,
-            0,
-            0,
-            rect.height
-        );
-
-
-    background.addColorStop(
-        0,
-        "rgba(1,8,17,0)"
-    );
-
-
-    background.addColorStop(
-        .5,
-        "rgba(0,28,48,.1)"
-    );
-
-
-    background.addColorStop(
-        1,
-        "rgba(0,80,120,.15)"
-    );
-
-
-    ctx.fillStyle =
-        background;
-
-    ctx.fillRect(
-        0,
-        0,
-        rect.width,
-        rect.height
-    );
-
-
-    drawOceanWaves();
-
-
-    updateParticles();
-
-
-    particles.forEach(
-        drawParticle
-    );
-
-
-    drawExplosions();
-
-
-    requestAnimationFrame(
-        animateOcean
-    );
-
-}
-
-
-animateOcean();
-
-
-
-/* ==================================================
-   CLIQUE NO MAR
-================================================== */
-
-canvas.addEventListener(
-    "click",
-    event => {
+    function createParticle() {
 
         const rect =
             canvas.getBoundingClientRect();
 
 
-        const x =
-            event.clientX -
-            rect.left;
+        return {
+
+            x:
+                Math.random() *
+                rect.width,
+
+            y:
+                Math.random() *
+                rect.height,
+
+            radius:
+                Math.random() * 2 + 0.5,
+
+            speed:
+                Math.random() * 0.35 + 0.1,
+
+            alpha:
+                Math.random() * 0.6 + 0.2,
+
+            phase:
+                Math.random() *
+                Math.PI * 2
+
+        };
+
+    }
 
 
-        const y =
-            event.clientY -
-            rect.top;
+
+    /* ==================================================
+       CRIAR GOTAS
+    ================================================== */
+
+    function createDrop() {
+
+        const rect =
+            canvas.getBoundingClientRect();
 
 
-        createExplosion(
-            x,
-            y
+        return {
+
+            x:
+                Math.random() *
+                rect.width,
+
+            y:
+                Math.random() *
+                rect.height,
+
+            radius:
+                Math.random() * 2 + 1,
+
+            speed:
+                Math.random() * 1 + 0.4,
+
+            alpha:
+                Math.random() * 0.5 + 0.2
+
+        };
+
+    }
+
+
+
+    /* ==================================================
+       POPULAR CANVAS
+    ================================================== */
+
+    function createParticles() {
+
+        particles = [];
+
+        rainbowDrops = [];
+
+
+        for (
+            let i = 0;
+            i < 80;
+            i++
+        ) {
+
+            particles.push(
+                createParticle()
+            );
+
+        }
+
+
+        for (
+            let i = 0;
+            i < 30;
+            i++
+        ) {
+
+            rainbowDrops.push(
+                createDrop()
+            );
+
+        }
+
+    }
+
+
+    createParticles();
+
+
+
+    /* ==================================================
+       DESENHAR PARTÍCULA
+    ================================================== */
+
+    function drawParticle(
+        particle
+    ) {
+
+        particle.phase += 0.02;
+
+
+        const pulse =
+            Math.sin(
+                particle.phase
+            ) * 0.5 + 0.5;
+
+
+        const radius =
+            particle.radius *
+            (0.8 + pulse);
+
+
+        const gradient =
+            ctx.createRadialGradient(
+                particle.x,
+                particle.y,
+                0,
+                particle.x,
+                particle.y,
+                radius * 6
+            );
+
+
+        gradient.addColorStop(
+            0,
+            `rgba(255,255,255,${particle.alpha})`
+        );
+
+
+        gradient.addColorStop(
+            0.3,
+            `rgba(120,220,255,${particle.alpha * 0.6})`
+        );
+
+
+        gradient.addColorStop(
+            1,
+            "rgba(255,255,255,0)"
+        );
+
+
+        ctx.beginPath();
+
+        ctx.fillStyle =
+            gradient;
+
+        ctx.arc(
+            particle.x,
+            particle.y,
+            radius * 6,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fill();
+
+    }
+
+
+
+    /* ==================================================
+       DESENHAR GOTAS
+    ================================================== */
+
+    function drawDrop(drop) {
+
+        ctx.beginPath();
+
+        ctx.fillStyle =
+            `rgba(150,220,255,${drop.alpha})`;
+
+        ctx.arc(
+            drop.x,
+            drop.y,
+            drop.radius,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fill();
+
+    }
+
+
+
+    /* ==================================================
+       ATUALIZAR PARTÍCULAS
+    ================================================== */
+
+    function updateParticles() {
+
+        const rect =
+            canvas.getBoundingClientRect();
+
+
+        particles.forEach(
+            particle => {
+
+                particle.y -=
+                    particle.speed;
+
+
+                particle.x +=
+                    Math.sin(
+                        particle.phase
+                    ) * 0.15;
+
+
+                if (
+                    particle.y < -10
+                ) {
+
+                    particle.y =
+                        rect.height + 10;
+
+                    particle.x =
+                        Math.random() *
+                        rect.width;
+
+                }
+
+            }
+        );
+
+
+        rainbowDrops.forEach(
+            drop => {
+
+                drop.y +=
+                    drop.speed;
+
+
+                if (
+                    drop.y >
+                    rect.height + 10
+                ) {
+
+                    drop.y = -10;
+
+                    drop.x =
+                        Math.random() *
+                        rect.width;
+
+                }
+
+            }
         );
 
     }
-);
+
+
+
+    /* ==================================================
+       DESENHAR ARCO-ÍRIS
+    ================================================== */
+
+    function drawRainbow() {
+
+        const rect =
+            canvas.getBoundingClientRect();
+
+
+        const centerX =
+            rect.width * 0.72;
+
+
+        const centerY =
+            rect.height * 0.88;
+
+
+        const radius =
+            Math.min(
+                rect.width * 0.55,
+                rect.height * 0.9
+            );
+
+
+        const colors = [
+
+            "#ff3b30",
+            "#ff9500",
+            "#ffd60a",
+            "#34c759",
+            "#00c7ff",
+            "#5856d6",
+            "#af52de"
+
+        ];
+
+
+        colors.forEach(
+            (color, index) => {
+
+                ctx.beginPath();
+
+
+                ctx.strokeStyle =
+                    color;
+
+
+                ctx.globalAlpha =
+                    0.65;
+
+
+                ctx.lineWidth =
+                    8;
+
+
+                ctx.arc(
+
+                    centerX,
+
+                    centerY,
+
+                    radius -
+                    index * 10,
+
+                    Math.PI,
+
+                    Math.PI * 2
+
+                );
+
+
+                ctx.stroke();
+
+            }
+        );
+
+
+        ctx.globalAlpha = 1;
+
+    }
+
+
+
+    /* ==================================================
+       DESENHAR BRILHO DO ARCO-ÍRIS
+    ================================================== */
+
+    function drawRainbowGlow() {
+
+        const rect =
+            canvas.getBoundingClientRect();
+
+
+        const centerX =
+            rect.width * 0.72;
+
+
+        const centerY =
+            rect.height * 0.88;
+
+
+        const radius =
+            Math.min(
+                rect.width * 0.55,
+                rect.height * 0.9
+            );
+
+
+        const gradient =
+            ctx.createRadialGradient(
+
+                centerX,
+                centerY - radius * 0.45,
+                10,
+
+                centerX,
+                centerY - radius * 0.45,
+                radius
+
+            );
+
+
+        gradient.addColorStop(
+            0,
+            "rgba(255,255,255,0.12)"
+        );
+
+
+        gradient.addColorStop(
+            0.4,
+            "rgba(100,180,255,0.05)"
+        );
+
+
+        gradient.addColorStop(
+            1,
+            "rgba(0,0,0,0)"
+        );
+
+
+        ctx.fillStyle =
+            gradient;
+
+
+        ctx.fillRect(
+            0,
+            0,
+            rect.width,
+            rect.height
+        );
+
+    }
+
+
+
+    /* ==================================================
+       EXPLOSÃO COLORIDA
+    ================================================== */
+
+    function createExplosion(
+        x,
+        y
+    ) {
+
+        explosions.push({
+
+            x: x,
+
+            y: y,
+
+            radius: 2,
+
+            alpha: 1
+
+        });
+
+    }
+
+
+
+    /* ==================================================
+       DESENHAR EXPLOSÕES
+    ================================================== */
+
+    function drawExplosions() {
+
+        explosions.forEach(
+            explosion => {
+
+                explosion.radius += 2;
+
+                explosion.alpha -= 0.025;
+
+
+                const gradient =
+                    ctx.createRadialGradient(
+
+                        explosion.x,
+                        explosion.y,
+                        0,
+
+                        explosion.x,
+                        explosion.y,
+                        explosion.radius
+
+                    );
+
+
+                gradient.addColorStop(
+                    0,
+                    `rgba(255,255,255,${explosion.alpha})`
+                );
+
+
+                gradient.addColorStop(
+                    0.25,
+                    `rgba(255,220,100,${explosion.alpha})`
+                );
+
+
+                gradient.addColorStop(
+                    0.5,
+                    `rgba(120,200,255,${explosion.alpha * 0.6})`
+                );
+
+
+                gradient.addColorStop(
+                    1,
+                    "rgba(255,255,255,0)"
+                );
+
+
+                ctx.beginPath();
+
+                ctx.fillStyle =
+                    gradient;
+
+                ctx.arc(
+
+                    explosion.x,
+                    explosion.y,
+                    explosion.radius,
+                    0,
+                    Math.PI * 2
+
+                );
+
+                ctx.fill();
+
+            }
+        );
+
+
+        explosions =
+            explosions.filter(
+                explosion =>
+                    explosion.alpha > 0
+            );
+
+    }
+
+
+
+    /* ==================================================
+       LOOP PRINCIPAL
+    ================================================== */
+
+    function animateRainbow() {
+
+        const rect =
+            canvas.getBoundingClientRect();
+
+
+        ctx.clearRect(
+            0,
+            0,
+            rect.width,
+            rect.height
+        );
+
+
+        /* Fundo */
+
+        const background =
+            ctx.createLinearGradient(
+                0,
+                0,
+                0,
+                rect.height
+            );
+
+
+        background.addColorStop(
+            0,
+            "rgba(15,25,70,0.08)"
+        );
+
+
+        background.addColorStop(
+            0.5,
+            "rgba(70,100,180,0.08)"
+        );
+
+
+        background.addColorStop(
+            1,
+            "rgba(100,180,255,0.15)"
+        );
+
+
+        ctx.fillStyle =
+            background;
+
+
+        ctx.fillRect(
+            0,
+            0,
+            rect.width,
+            rect.height
+        );
+
+
+        drawRainbowGlow();
+
+
+        drawRainbow();
+
+
+        updateParticles();
+
+
+        particles.forEach(
+            drawParticle
+        );
+
+
+        rainbowDrops.forEach(
+            drawDrop
+        );
+
+
+        drawExplosions();
+
+
+        requestAnimationFrame(
+            animateRainbow
+        );
+
+    }
+
+
+    animateRainbow();
+
+
+
+    /* ==================================================
+       CLIQUE NO ARCO-ÍRIS
+    ================================================== */
+
+    canvas.addEventListener(
+        "click",
+        event => {
+
+            const rect =
+                canvas.getBoundingClientRect();
+
+
+            const x =
+                event.clientX -
+                rect.left;
+
+
+            const y =
+                event.clientY -
+                rect.top;
+
+
+            createExplosion(
+                x,
+                y
+            );
+
+        }
+    );
+
+}
 
 
 
@@ -713,17 +855,17 @@ const quizQuestions = [
     {
 
         question:
-            "O que é bioluminescência?",
+            "O que é necessário para formar um arco-íris?",
 
         answers: [
 
-            "Produção de luz por organismos vivos",
+            "Luz solar e gotas de água",
 
-            "Reflexo da luz solar",
+            "Somente luz da Lua",
 
-            "Uma doença marinha",
+            "Somente vento",
 
-            "Um tipo de fotossíntese"
+            "Apenas nuvens"
 
         ],
 
@@ -735,17 +877,17 @@ const quizQuestions = [
     {
 
         question:
-            "Qual organismo é conhecido por produzir luz?",
+            "O que acontece quando a luz entra em uma gota de água?",
 
         answers: [
 
-            "Vaga-lume",
+            "Ela sofre refração",
 
-            "Elefante",
+            "Ela desaparece",
 
-            "Cachorro",
+            "Ela vira som",
 
-            "Coala"
+            "Ela deixa de existir"
 
         ],
 
@@ -757,51 +899,7 @@ const quizQuestions = [
     {
 
         question:
-            "Qual molécula participa da reação bioluminescente?",
-
-        answers: [
-
-            "Luciferina",
-
-            "Hemoglobina",
-
-            "Celulose",
-
-            "Amido"
-
-        ],
-
-        correct: 0
-
-    },
-
-
-    {
-
-        question:
-            "Qual é uma função da bioluminescência?",
-
-        answers: [
-
-            "Defesa contra predadores",
-
-            "Produção de ossos",
-
-            "Digestão",
-
-            "Respiração"
-
-        ],
-
-        correct: 0
-
-    },
-
-
-    {
-
-        question:
-            "O mar pode apresentar brilho causado por microrganismos?",
+            "A luz branca é formada por diferentes cores?",
 
         answers: [
 
@@ -809,9 +907,53 @@ const quizQuestions = [
 
             "Não",
 
-            "Somente durante o dia",
+            "Somente durante a noite",
 
-            "Somente em água doce"
+            "Somente quando chove"
+
+        ],
+
+        correct: 0
+
+    },
+
+
+    {
+
+        question:
+            "Qual fenômeno ajuda a separar as cores da luz?",
+
+        answers: [
+
+            "Dispersão",
+
+            "Evaporação",
+
+            "Combustão",
+
+            "Fermentação"
+
+        ],
+
+        correct: 0
+
+    },
+
+
+    {
+
+        question:
+            "O arco-íris é um objeto físico que fica no céu?",
+
+        answers: [
+
+            "Não, é um fenômeno óptico",
+
+            "Sim, é um objeto sólido",
+
+            "Sim, é formado por nuvens",
+
+            "Sim, é formado por fumaça"
 
         ],
 
@@ -828,6 +970,11 @@ let score = 0;
 
 let answered = false;
 
+
+
+/* ==================================================
+   ELEMENTOS DO QUIZ
+================================================== */
 
 const questionElement =
     document.getElementById(
@@ -896,7 +1043,19 @@ const restartQuiz =
 
 function loadQuestion() {
 
+    if (
+        !questionElement ||
+        !answersElement ||
+        !nextButton
+    ) {
+
+        return;
+
+    }
+
+
     answered = false;
+
 
     nextButton.disabled =
         true;
@@ -938,6 +1097,10 @@ function loadQuestion() {
                 document.createElement(
                     "button"
                 );
+
+
+            button.type =
+                "button";
 
 
             button.textContent =
@@ -1031,6 +1194,7 @@ function selectAnswer(
             "correct"
         );
 
+
         score += 10;
 
     } else {
@@ -1054,40 +1218,51 @@ function selectAnswer(
 
 
 /* ==================================================
-   PRÓXIMA
+   PRÓXIMA QUESTÃO
 ================================================== */
 
-nextButton.addEventListener(
-    "click",
-    () => {
+if (nextButton) {
 
-        currentQuestion++;
+    nextButton.addEventListener(
+        "click",
+        () => {
+
+            currentQuestion++;
 
 
-        if (
-            currentQuestion >=
-            quizQuestions.length
-        ) {
+            if (
+                currentQuestion >=
+                quizQuestions.length
+            ) {
 
-            finishQuiz();
+                finishQuiz();
 
-            return;
+                return;
+
+            }
+
+
+            loadQuestion();
 
         }
+    );
 
-
-        loadQuestion();
-
-    }
-);
+}
 
 
 
 /* ==================================================
-   FINALIZAR
+   FINALIZAR QUIZ
 ================================================== */
 
 function finishQuiz() {
+
+    if (!questionArea || !quizResult) {
+
+        return;
+
+    }
+
 
     questionArea.style.display =
         "none";
@@ -1111,28 +1286,32 @@ function finishQuiz() {
    REINICIAR QUIZ
 ================================================== */
 
-restartQuiz.addEventListener(
-    "click",
-    () => {
+if (restartQuiz) {
 
-        currentQuestion = 0;
+    restartQuiz.addEventListener(
+        "click",
+        () => {
 
-        score = 0;
+            currentQuestion = 0;
 
-
-        quizResult.classList.remove(
-            "show"
-        );
+            score = 0;
 
 
-        questionArea.style.display =
-            "block";
+            quizResult.classList.remove(
+                "show"
+            );
 
 
-        loadQuestion();
+            questionArea.style.display =
+                "block";
 
-    }
-);
+
+            loadQuestion();
+
+        }
+    );
+
+}
 
 
 loadQuestion();
@@ -1149,45 +1328,49 @@ const backTop =
     );
 
 
-window.addEventListener(
-    "scroll",
-    () => {
+if (backTop) {
 
-        if (
-            window.scrollY >
-            600
-        ) {
+    window.addEventListener(
+        "scroll",
+        () => {
 
-            backTop.classList.add(
-                "show"
-            );
+            if (
+                window.scrollY >
+                600
+            ) {
 
-        } else {
+                backTop.classList.add(
+                    "show"
+                );
 
-            backTop.classList.remove(
-                "show"
-            );
+            } else {
+
+                backTop.classList.remove(
+                    "show"
+                );
+
+            }
 
         }
-
-    }
-);
+    );
 
 
-backTop.addEventListener(
-    "click",
-    () => {
+    backTop.addEventListener(
+        "click",
+        () => {
 
-        window.scrollTo({
+            window.scrollTo({
 
-            top: 0,
+                top: 0,
 
-            behavior: "smooth"
+                behavior: "smooth"
 
-        });
+            });
 
-    }
-);
+        }
+    );
+
+}
 
 
 
@@ -1218,7 +1401,9 @@ const observer =
         },
 
         {
-            threshold: .12
+
+            threshold: 0.12
+
         }
 
     );
